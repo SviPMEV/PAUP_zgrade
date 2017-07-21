@@ -15,14 +15,14 @@ namespace PAUP_zgrade.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "...ilitiga kratki opis aplikacije.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Koristite jednu od navedenih metoda za kontakt.";
 
             return View();
         }
