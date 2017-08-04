@@ -233,10 +233,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Views\stanarsController.cs" />
+    <Compile Include="Views\zgradasController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\admin_ind\tenants.jpg" />
+    <Content Include="Content\img\admin_ind\zgrade_umbrella.jpg" />
     <Content Include="Content\img\zgradaimg_1.jpg" />
     <Content Include="Content\img\zgradaimg_2.jpg" />
     <Content Include="Content\img\zgradaimg_3.jpg" />
@@ -312,14 +315,22 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Test\testViewPage1.cshtml" />
+    <Content Include="Views\zgradas\Create.cshtml" />
+    <Content Include="Views\zgradas\Delete.cshtml" />
+    <Content Include="Views\zgradas\Details.cshtml" />
+    <Content Include="Views\zgradas\Edit.cshtml" />
+    <Content Include="Views\zgradas\Index.cshtml" />
     <Content Include="Views\stanars\Create.cshtml" />
     <Content Include="Views\stanars\Delete.cshtml" />
     <Content Include="Views\stanars\Details.cshtml" />
     <Content Include="Views\stanars\Edit.cshtml" />
     <Content Include="Views\stanars\Index.cshtml" />
+    <Content Include="Views\upravitelj\Index.cshtml" />
+    <Content Include="Views\Home\AdminIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\AdminIndex\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
