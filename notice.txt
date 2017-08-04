@@ -1,0 +1,16 @@
+Postoji MySQL bug, po defaultu kad se radi model u mvc-u preko ado.net-a
+
+potrebno je restartati mysql servise i unijeti u mysql shell
+
+use zgrade_db;
+
+set global optimizer_switch='derived_merge=off';
+
+set optimizer_switch='derived_merge=off';
+
+
+
+
+select @@optimizer_switch;
+
+select @@GLOBAL.optimizer_switch;
