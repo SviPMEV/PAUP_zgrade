@@ -17,14 +17,37 @@ namespace PAUP_zgrade.Models
     [Table("stanar")]
     public partial class stanar
     {
+        [Display(Name = "ID stanara")]
         [Key]
         public int idstanar { get; set; }
+
+        [Display(Name = "Ime")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
         public string Ime { get; set; }
+
+        [Display(Name = "Prezime")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
         public string Prezime { get; set; }
+
+        [Display(Name = "OIB")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "{0} treba imati {1} znamenki")]
         public int OIB { get; set; }
+
+        [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
+        [EmailAddress]
         public string email { get; set; }
+
+        [Display(Name = "Broj telefona")]
         public Nullable<int> telefon { get; set; }
+
+        [Display(Name = "Broj mobitela")]
         public Nullable<int> mobitel { get; set; }
+
+        [Display(Name = "Broj zgrade")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
         public int zgrada { get; set; }
     }
 }
