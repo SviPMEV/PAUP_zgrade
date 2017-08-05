@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PAUP_zgrade.Models.zgrada>
+
+@{
+    ViewBag.Title = "Lista zgrada";
+}
+
+<h2>Lista zgrada</h2>
+
+<p>
+    @Html.ActionLink("Dodaj zgradu", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ulica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.grad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postanskibroj)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ulica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.grad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postanskibroj)
+        </td>
+        <td>
+            @Html.ActionLink("Promjena", "Edit", new { id=item.idzgrada }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.idzgrada }) |
+            @Html.ActionLink("Obriši", "Delete", new { id=item.idzgrada })
+        </td>
+    </tr>
+}
+
+</table>

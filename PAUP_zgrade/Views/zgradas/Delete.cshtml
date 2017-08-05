@@ -1,0 +1,48 @@
+﻿@model PAUP_zgrade.Models.zgrada
+
+@{
+    ViewBag.Title = "Obriši zgradu s liste";
+}
+
+<h2>Obriši zgradu s liste</h2>
+
+<h3>Jeste li sigurni da želite obrisati?</h3>
+<div>
+    <h4>@Html.LabelFor(model => model.idzgrada) @Html.DisplayFor(model => model.idzgrada)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ulica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ulica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postanskibroj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postanskibroj)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Obriši" class="btn btn-default" /> |
+            @Html.ActionLink("Natrag na listu", "Index")
+        </div>
+    }
+</div>

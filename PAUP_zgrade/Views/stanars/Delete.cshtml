@@ -1,0 +1,80 @@
+﻿@model PAUP_zgrade.Models.stanar
+
+@{
+    ViewBag.Title = "Obriši stanara";
+}
+
+<h2>Obriši stanara</h2>
+
+<h3>Jeste li sigurni da želite obrisati ovog stanara?</h3>
+<div>
+    <h4>@Html.LabelFor(model => model.idstanar) @Html.DisplayFor(model => model.idstanar)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prezime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prezime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OIB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OIB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mobitel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mobitel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zgrada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zgrada)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Obriši" class="btn btn-default" /> |
+            @Html.ActionLink("Natrag na listu", "Index")
+        </div>
+    }
+</div>
