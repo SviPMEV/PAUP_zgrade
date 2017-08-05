@@ -50,6 +50,8 @@ namespace PAUP_zgrade.Views
         {
             if (ModelState.IsValid)
             {
+                int noviId = (from st in db.stanars select st).Max(x => x.idstanar) + 1;
+                stanar.idstanar = noviId;
                 db.stanars.Add(stanar);
                 db.SaveChanges();
                 return RedirectToAction("Index");

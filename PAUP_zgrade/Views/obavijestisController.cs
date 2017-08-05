@@ -15,15 +15,17 @@ namespace PAUP_zgrade.Views
         private zgrade_dbEntities1 db = new zgrade_dbEntities1();
 
         // GET: obavijestis - index
+        //dodan kod za ispit na obrnuti nacin prema id-u
         public ActionResult Index()
         {
-            return View(db.obavijestis.ToList());
+            return View(db.obavijestis.OrderByDescending(x => x.idobavijesti).ToList());
         }
 
         // GET: pregled obavijesti
+        //dodan kod da bude vremenski obrnuti prikaz svih obavijesti
         public ActionResult pregledObavijesti()
         {
-            return View(db.obavijestis.ToList());
+            return View(db.obavijestis.OrderByDescending(x => x.datumObavijest).ToList());
         }
 
         // GET: obavijestis/Details/5
