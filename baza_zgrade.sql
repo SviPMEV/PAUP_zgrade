@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `financije`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `financije` (
-  `idfinancije` int(11) NOT NULL,
+  `idfinancije` int(11) NOT NULL AUTO_INCREMENT,
   `datumFinancije` date NOT NULL,
   `vrijednostFinancije` decimal(10,0) NOT NULL,
   `zgradaFinancija` int(11) NOT NULL,
@@ -48,12 +48,12 @@ DROP TABLE IF EXISTS `obavijesti`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `obavijesti` (
-  `idobavijesti` int(11) NOT NULL,
+  `idobavijesti` int(11) NOT NULL AUTO_INCREMENT,
   `temaObavijest` longtext COLLATE cp1250_croatian_ci NOT NULL,
   `tekstObavijest` longtext COLLATE cp1250_croatian_ci NOT NULL,
   `datumObavijest` datetime NOT NULL,
   PRIMARY KEY (`idobavijesti`)
-) ENGINE=InnoDB DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,6 +62,7 @@ CREATE TABLE `obavijesti` (
 
 LOCK TABLES `obavijesti` WRITE;
 /*!40000 ALTER TABLE `obavijesti` DISABLE KEYS */;
+INSERT INTO `obavijesti` VALUES (1,'Napravljena nova zgrada u Varaždinu','Obavještavamo građane republike Hrvatske da je napravljena nova zgrada z Varaždinu, te slobno cijeli puk kupi stan po volji, cijene će varirati od 20€ po kvadratu za politicare i clanove crveno zelenih stranaka pa sve do 2000€ po kvadratu za opći narod sa prosjećnim primanjima ukoliko par mjeseci uplate neko mito prvotno navedenima','2016-12-02 23:59:59'),(2,'Zamijenjena žarulja u Čakovcu','Obještavamo stanare zgrade u Čakovcu da im je zamijenjena žarulja na drugom katu, s 60W modelom, ovo će uvelike doprinijeti uštedi toplinske energije pošto smo pri uštedi kupili žarulju sa žarnom niti umjesto LED varijante tako da grije pošteno i stanari na određenom katu mogu smanjiti grijanje za 0.2 stupnjeva na svojim šparhetima na drva.','2016-12-23 22:40:59'),(3,'Vjetar otpuhnuo predstavnika zgrade','Prilikom jakog vjetra u srijedu predstvanik zgrade se naginjao kroz prozor zajedničkog hodnika i otpuhnuo ga je do susjedne zgrade koja je u vlasništvu konkurentske tvrtke koji pa ga žele otkupiti za vođenje svoje zgrade, trenutačno smo u pregovorima s konkuretntskom tvrtkom i čekamo bolje uvjete. do daljnjega predstavnik zgrade je nedostupan','2017-01-11 23:23:22');
 /*!40000 ALTER TABLE `obavijesti` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -73,10 +74,10 @@ DROP TABLE IF EXISTS `poruka`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `poruka` (
-  `idporuka` int(11) NOT NULL,
-  `temaPoruke` longtext COLLATE cp1250_croatian_ci,
-  `tijeloPoruke` longtext COLLATE cp1250_croatian_ci,
-  `datumPoruke` date DEFAULT NULL,
+  `idporuka` int(11) NOT NULL AUTO_INCREMENT,
+  `temaPoruke` longtext COLLATE cp1250_croatian_ci NOT NULL,
+  `tijeloPoruke` longtext COLLATE cp1250_croatian_ci NOT NULL,
+  `datumPoruke` date NOT NULL,
   PRIMARY KEY (`idporuka`)
 ) ENGINE=InnoDB DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -98,7 +99,7 @@ DROP TABLE IF EXISTS `stanar`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `stanar` (
-  `idstanar` int(11) NOT NULL,
+  `idstanar` int(11) NOT NULL AUTO_INCREMENT,
   `Ime` varchar(45) COLLATE cp1250_croatian_ci NOT NULL,
   `Prezime` varchar(45) COLLATE cp1250_croatian_ci NOT NULL,
   `OIB` int(12) NOT NULL,
@@ -107,7 +108,7 @@ CREATE TABLE `stanar` (
   `mobitel` int(11) DEFAULT NULL,
   `zgrada` int(11) NOT NULL,
   PRIMARY KEY (`idstanar`)
-) ENGINE=InnoDB DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,12 +129,12 @@ DROP TABLE IF EXISTS `zgrada`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `zgrada` (
-  `idzgrada` int(11) NOT NULL,
+  `idzgrada` int(11) NOT NULL AUTO_INCREMENT,
   `ulica` varchar(255) COLLATE cp1250_croatian_ci NOT NULL,
   `grad` varchar(45) COLLATE cp1250_croatian_ci NOT NULL,
   `postanskibroj` int(6) DEFAULT NULL,
   PRIMARY KEY (`idzgrada`)
-) ENGINE=InnoDB DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,4 +156,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-04 16:27:17
+-- Dump completed on 2017-08-05 15:51:07
