@@ -1,0 +1,30 @@
+﻿@model IEnumerable<PAUP_zgrade.Models.obavijesti>
+
+@{
+    ViewBag.Title = "Pregled obavijesti";
+}
+<div style="position:absolute; right:20px;">
+    <img src="~/Content/img/obavijesti/notices_coplek.png"; width="200" height="210"/>
+</div>
+
+   <h2>Pregled obavijesti</h2>
+
+    @foreach (var item in Model)
+    {
+        <hr />
+        <div style="background-color:#F0F8FF; margin: 10px; padding:10px;">
+
+            <h3><b> @Html.DisplayFor(modelItem => item.temaObavijest)</b></h3>
+
+            <h7>Datum obavijesti:</h7>
+
+            <p>@Html.DisplayFor(modelItem => item.datumObavijest)</p>
+            <br />
+
+            <h4><b>Sadržaj:</b></h4>
+
+            <p> @Html.DisplayFor(modelItem => item.tekstObavijest)</p>
+
+        </div>
+
+    }
