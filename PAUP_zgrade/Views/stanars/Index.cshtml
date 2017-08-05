@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<PAUP_zgrade.Models.stanar>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista stanara";
 }
 
-<h2>Index</h2>
+<h2>Lista stanara</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj novog stanara", "Create")
 </p>
 <table class="table">
     <tr>
@@ -59,9 +59,9 @@
             @Html.DisplayFor(modelItem => item.zgrada)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idstanar }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idstanar }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idstanar })
+            @Html.ActionLink("Promjena", "Edit", new { id=item.idstanar }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.idstanar }) |
+            @Html.ActionLink("Obriši", "Delete", new { id=item.idstanar })
         </td>
     </tr>
 }

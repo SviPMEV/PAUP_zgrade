@@ -1,13 +1,13 @@
 ﻿@model PAUP_zgrade.Models.zgrada
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalji o zgradi";
 }
 
-<h2>Details</h2>
+<h2>Detalji o zgradi</h2>
 
 <div>
-    <h4>zgrada</h4>
+    <h4>@Html.LabelFor(model => model.idzgrada) @Html.DisplayFor(model => model.idzgrada)</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -37,6 +37,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idzgrada }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Promjena podataka", "Edit", new { id = Model.idzgrada }) |
+    @Html.ActionLink("Natrag  na listu", "Index")
 </p>

@@ -14,22 +14,23 @@ namespace PAUP_zgrade.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-
-    public partial class zgrada
+    [Table("obavijesti")]
+    public partial class poruka
     {
-        [Display(Name = "ID zgrade")]
+        [Display(Name = "ID obavijesti")]
         [Key]
-        public int idzgrada { get; set; }
+        public int idporuka { get; set; }
 
-        [Display(Name = "Ulica i broj")]
+        [Display(Name = "Tema poruke")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
-        public string ulica { get; set; }
+        public string temaPoruke { get; set; }
 
-        [Display(Name = "Grad")]
+        [Display(Name = "Sadržaj poruke")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
-        public string grad { get; set; }
+        public string tijeloPoruke { get; set; }
 
-        [Display(Name = "Poštanski broj")]
-        public Nullable<int> postanskibroj { get; set; }
+        [Display(Name = "Datum poruke")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
+        public System.DateTime datumPoruke { get; set; }
     }
 }

@@ -15,6 +15,7 @@ namespace PAUP_zgrade.Models
     using System.ComponentModel.DataAnnotations.Schema;
 
     [Table("stanar")]
+
     public partial class stanar
     {
         [Display(Name = "ID stanara")]

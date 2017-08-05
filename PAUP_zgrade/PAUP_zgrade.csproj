@@ -207,6 +207,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\financije.cs">
+      <DependentUpon>modeli_zgrade.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\modeli_zgrade.Context.cs">
@@ -223,6 +226,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>modeli_zgrade.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\obavijesti.cs">
+      <DependentUpon>modeli_zgrade.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\poruka.cs">
+      <DependentUpon>modeli_zgrade.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\stanar.cs">
       <DependentUpon>modeli_zgrade.tt</DependentUpon>
@@ -270,6 +279,8 @@
     <Content Include="Models\modeli_zgrade.edmx.diagram">
       <DependentUpon>modeli_zgrade.edmx</DependentUpon>
     </Content>
+    <Content Include="ClassDiagram1.cd" />
+    <None Include="Properties\PublishProfiles\PAUPzgrade - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -281,7 +292,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

@@ -1,10 +1,10 @@
 ﻿@model PAUP_zgrade.Models.stanar
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Dodavanje novog stanara";
 }
 
-<h2>Create</h2>
+<h2>Dodavanje novog stanara</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>stanar</h4>
+        <h4>@Html.LabelFor(model => model.idstanar) @Html.DisplayFor(model => model.idstanar)</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -81,14 +81,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Dodaj" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Natrag na listu", "Index")
 </div>
 
 @section Scripts {

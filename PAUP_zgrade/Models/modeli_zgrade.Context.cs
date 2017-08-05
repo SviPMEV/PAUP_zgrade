@@ -27,5 +27,8 @@ namespace PAUP_zgrade.Models
     
         public virtual DbSet<stanar> stanars { get; set; }
         public virtual DbSet<zgrada> zgradas { get; set; }
+        public virtual DbSet<financije> financijes { get; set; }
+        public virtual DbSet<obavijesti> obavijestis { get; set; }
+        public virtual DbSet<poruka> porukas { get; set; }
     }
 }

@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<PAUP_zgrade.Models.zgrada>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista zgrada";
 }
 
-<h2>Index</h2>
+<h2>Lista zgrada</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj zgradu", "Create")
 </p>
 <table class="table">
     <tr>
@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.postanskibroj)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idzgrada }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idzgrada }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idzgrada })
+            @Html.ActionLink("Promjena", "Edit", new { id=item.idzgrada }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.idzgrada }) |
+            @Html.ActionLink("Obriši", "Delete", new { id=item.idzgrada })
         </td>
     </tr>
 }

@@ -4,7 +4,34 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="zgrade_dbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="zgrade_dbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="financije">
+          <Key>
+            <PropertyRef Name="idfinancije" />
+          </Key>
+          <Property Name="idfinancije" Type="int" Nullable="false" />
+          <Property Name="datumFinancije" Type="date" Nullable="false" />
+          <Property Name="vrijednostFinancije" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="zgradaFinancija" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="obavijesti">
+          <Key>
+            <PropertyRef Name="idobavijesti" />
+          </Key>
+          <Property Name="idobavijesti" Type="int" Nullable="false" />
+          <Property Name="temaObavijest" Type="longtext" Nullable="false" />
+          <Property Name="tekstObavijest" Type="longtext" Nullable="false" />
+          <Property Name="datumObavijest" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="poruka">
+          <Key>
+            <PropertyRef Name="idporuka" />
+          </Key>
+          <Property Name="idporuka" Type="int" Nullable="false" />
+          <Property Name="temaPoruke" Type="longtext" />
+          <Property Name="tijeloPoruke" Type="longtext" />
+          <Property Name="datumPoruke" Type="date" />
+        </EntityType>
         <EntityType Name="stanar">
           <Key>
             <PropertyRef Name="idstanar" />
@@ -28,11 +55,13 @@
           <Property Name="postanskibroj" Type="int" />
         </EntityType>
         <EntityContainer Name="zgrade_dbModelStoreContainer">
+          <EntitySet Name="financije" EntityType="Self.financije" Schema="zgrade_db" store:Type="Tables" />
+          <EntitySet Name="obavijesti" EntityType="Self.obavijesti" Schema="zgrade_db" store:Type="Tables" />
+          <EntitySet Name="poruka" EntityType="Self.poruka" Schema="zgrade_db" store:Type="Tables" />
           <EntitySet Name="stanar" EntityType="Self.stanar" Schema="zgrade_db" store:Type="Tables" />
           <EntitySet Name="zgrada" EntityType="Self.zgrada" Schema="zgrade_db" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="zgrade_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -61,7 +90,37 @@
         <EntityContainer Name="zgrade_dbEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="stanars" EntityType="Self.stanar" />
           <EntitySet Name="zgradas" EntityType="Self.zgrada" />
+          <EntitySet Name="financijes" EntityType="zgrade_dbModel.financije" />
+          <EntitySet Name="obavijestis" EntityType="zgrade_dbModel.obavijesti" />
+          <EntitySet Name="porukas" EntityType="zgrade_dbModel.poruka" />
         </EntityContainer>
+        <EntityType Name="financije">
+          <Key>
+            <PropertyRef Name="idfinancije" />
+          </Key>
+          <Property Name="idfinancije" Type="Int32" Nullable="false" />
+          <Property Name="datumFinancije" Type="DateTime" Nullable="false" />
+          <Property Name="vrijednostFinancije" Type="Decimal" Nullable="false" />
+          <Property Name="zgradaFinancija" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="obavijesti">
+          <Key>
+            <PropertyRef Name="idobavijesti" />
+          </Key>
+          <Property Name="idobavijesti" Type="Int32" Nullable="false" />
+          <Property Name="temaObavijest" Type="String" Nullable="false" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="tekstObavijest" Type="String" Nullable="false" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="datumObavijest" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="poruka">
+          <Key>
+            <PropertyRef Name="idporuka" />
+          </Key>
+          <Property Name="idporuka" Type="Int32" Nullable="false" />
+          <Property Name="temaPoruke" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="tijeloPoruke" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="datumPoruke" Type="DateTime" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -89,6 +148,36 @@
                 <ScalarProperty Name="ulica" ColumnName="ulica" />
                 <ScalarProperty Name="grad" ColumnName="grad" />
                 <ScalarProperty Name="postanskibroj" ColumnName="postanskibroj" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="financijes">
+            <EntityTypeMapping TypeName="zgrade_dbModel.financije">
+              <MappingFragment StoreEntitySet="financije">
+                <ScalarProperty Name="zgradaFinancija" ColumnName="zgradaFinancija" />
+                <ScalarProperty Name="vrijednostFinancije" ColumnName="vrijednostFinancije" />
+                <ScalarProperty Name="datumFinancije" ColumnName="datumFinancije" />
+                <ScalarProperty Name="idfinancije" ColumnName="idfinancije" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="obavijestis">
+            <EntityTypeMapping TypeName="zgrade_dbModel.obavijesti">
+              <MappingFragment StoreEntitySet="obavijesti">
+                <ScalarProperty Name="datumObavijest" ColumnName="datumObavijest" />
+                <ScalarProperty Name="tekstObavijest" ColumnName="tekstObavijest" />
+                <ScalarProperty Name="temaObavijest" ColumnName="temaObavijest" />
+                <ScalarProperty Name="idobavijesti" ColumnName="idobavijesti" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="porukas">
+            <EntityTypeMapping TypeName="zgrade_dbModel.poruka">
+              <MappingFragment StoreEntitySet="poruka">
+                <ScalarProperty Name="datumPoruke" ColumnName="datumPoruke" />
+                <ScalarProperty Name="tijeloPoruke" ColumnName="tijeloPoruke" />
+                <ScalarProperty Name="temaPoruke" ColumnName="temaPoruke" />
+                <ScalarProperty Name="idporuka" ColumnName="idporuka" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
