@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PAUP_zgrade.Models.obavijesti>
+
+@{
+    ViewBag.Title = "Kontrola obavijesti";
+}
+
+<h2>Lista obavijesti i manipulacija</h2>
+
+<p>
+    @Html.ActionLink("Stvori novu obavijest", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idobavijesti)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.temaObavijest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tekstObavijest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datumObavijest)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idobavijesti)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.temaObavijest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tekstObavijest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datumObavijest)
+        </td>
+        <td>
+            @Html.ActionLink("Izmjena", "Edit", new { id=item.idobavijesti }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.idobavijesti }) |
+            @Html.ActionLink("Obriši", "Delete", new { id=item.idobavijesti })
+        </td>
+    </tr>
+}
+
+</table>

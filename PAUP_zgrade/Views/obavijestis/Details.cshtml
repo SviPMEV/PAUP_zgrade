@@ -1,0 +1,42 @@
+﻿@model PAUP_zgrade.Models.obavijesti
+
+@{
+    ViewBag.Title = "Pregled obavijesti";
+}
+
+<h2>Pregled obavijesti</h2>
+
+<div>
+    <h4>@Html.LabelFor(model => model.idobavijesti) @Html.DisplayFor(model => model.idobavijesti)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.temaObavijest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.temaObavijest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tekstObavijest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tekstObavijest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datumObavijest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datumObavijest)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Izmjena", "Edit", new { id = Model.idobavijesti }) |
+    @Html.ActionLink("Natrag na listu", "Index")
+</p>
