@@ -31,8 +31,8 @@ namespace PAUP_zgrade.Models
         public string Prezime { get; set; }
 
         [Display(Name = "OIB")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
-        [StringLength(11, MinimumLength = 11, ErrorMessage = "{0} treba imati {1} znamenki")]
+        [Required(ErrorMessage = "{OIB je obavezan podatak")]
+        //[StringLength(11, MinimumLength = 11, ErrorMessage = "{0} treba imati {1} znamenki")]
         public int OIB { get; set; }
 
         [Display(Name = "Email")]

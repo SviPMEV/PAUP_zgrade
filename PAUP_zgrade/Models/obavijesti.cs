@@ -27,10 +27,16 @@ namespace PAUP_zgrade.Models
 
         [Display(Name = "Sadržaj obavijesti")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
+        [DataType(DataType.MultilineText)]
         public string tekstObavijest { get; set; }
 
         [Display(Name = "Datum obavijesti")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
+        [Required(ErrorMessage = "Datum je obavezan podatak")]
+        [DataType(DataType.Date)]
+        // ako ne napišemo fiksno ovaj format Google Chrome neæe dobro prikazati datumsko polje
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        // ako želimo zadati raspon datuma
+        // [Range(typeof(DateTime), "01.01.1900", "31.12.2005", ErrorMessage="{0} treba biti izmeðu {1:d} i {2:d}")]
         public System.DateTime datumObavijest { get; set; }
     }
 }
