@@ -229,6 +229,7 @@
     <Compile Include="Models\obavijesti.cs">
       <DependentUpon>modeli_zgrade.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OIB.cs" />
     <Compile Include="Models\poruka.cs">
       <DependentUpon>modeli_zgrade.tt</DependentUpon>
     </Compile>

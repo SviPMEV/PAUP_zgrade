@@ -32,7 +32,9 @@ namespace PAUP_zgrade.Models
 
         [Display(Name = "OIB")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
-        [StringLength(11, MinimumLength = 11, ErrorMessage = "{0} treba imati {1} znamenki")] 
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "{0} treba imati {1} znamenki")]
+        // custom validacija OIB-a
+        [OibValidacija(ErrorMessage = "Neispravan OIB")]
         public string OIB { get; set; }
 
         [Display(Name = "Email")]
