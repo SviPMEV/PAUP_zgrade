@@ -1,0 +1,55 @@
+﻿@model PAUP_zgrade.Models.poruka
+
+@{
+    ViewBag.Title = "Brisanje poruke";
+}
+
+<h2>Brisanje poruke</h2>
+
+<h3>Jeste li sigurni da želite obrisati ovu poruku?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.temaPoruke)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.temaPoruke)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tijeloPoruke)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tijeloPoruke)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datumPoruke)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datumPoruke)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.posiljateljPoruke)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.posiljateljPoruke)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Obriši" class="btn btn-default" /> |
+            @Html.ActionLink("Natrag na listu", "Index")
+        </div>
+    }
+</div>

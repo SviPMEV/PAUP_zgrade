@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PAUP_zgrade.Models.poruka>
+
+@{
+    ViewBag.Title = "Pristigle poruke";
+}
+
+<h2>Pristigle poruke</h2>
+
+@*<p>
+    @Html.ActionLink("", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.temaPoruke)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tijeloPoruke)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datumPoruke)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.posiljateljPoruke)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.temaPoruke)
+        </td>
+        <td>
+            @{
+                string tijelo;
+                if (item.tijeloPoruke.ToString().Length > 100)
+                {
+                    tijelo = item.tijeloPoruke.ToString().Substring(0, 100) + "...";
+                }
+                else
+                {
+                    tijelo = item.tijeloPoruke;
+                }
+            }
+            @tijelo
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datumPoruke)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.posiljateljPoruke)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.idporuka }) |*@
+            @Html.ActionLink("Details", "Details", new { id=item.idporuka }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idporuka })
+        </td>
+    </tr>
+}
+
+</table>

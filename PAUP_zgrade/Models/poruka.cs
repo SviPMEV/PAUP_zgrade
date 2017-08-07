@@ -27,11 +27,19 @@ namespace PAUP_zgrade.Models
         public string temaPoruke { get; set; }
 
         [Display(Name = "Sadržaj poruke")]
+        [DataType(DataType.MultilineText)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
         public string tijeloPoruke { get; set; }
 
         [Display(Name = "Datum poruke")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
+        [Required(ErrorMessage = "Datum je obavezan podatak")]
+        [DataType(DataType.Date)]
+        // ako ne napisemo fiksno ovaj format Google Chrome ne�e dobro prikazati datumsko po
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime datumPoruke { get; set; }
+
+        [Display(Name = "Pošiljatelj")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
+        public string posiljateljPoruke { get; set; }
     }
 }

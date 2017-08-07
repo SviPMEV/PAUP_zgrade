@@ -28,6 +28,7 @@
             <PropertyRef Name="idporuka" />
           </Key>
           <Property Name="idporuka" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="posiljateljPoruke" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="temaPoruke" Type="longtext" Nullable="false" />
           <Property Name="tijeloPoruke" Type="longtext" Nullable="false" />
           <Property Name="datumPoruke" Type="date" Nullable="false" />
@@ -120,6 +121,7 @@
           <Property Name="temaPoruke" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tijeloPoruke" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="datumPoruke" Type="DateTime" Nullable="false" />
+          <Property Name="posiljateljPoruke" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -174,6 +176,7 @@
           <EntitySetMapping Name="porukas">
             <EntityTypeMapping TypeName="zgrade_dbModel.poruka">
               <MappingFragment StoreEntitySet="poruka">
+                <ScalarProperty Name="posiljateljPoruke" ColumnName="posiljateljPoruke" />
                 <ScalarProperty Name="datumPoruke" ColumnName="datumPoruke" />
                 <ScalarProperty Name="tijeloPoruke" ColumnName="tijeloPoruke" />
                 <ScalarProperty Name="temaPoruke" ColumnName="temaPoruke" />

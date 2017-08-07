@@ -35,8 +35,17 @@
             @Html.DisplayFor(modelItem => item.temaObavijest)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.tekstObavijest).ToString().Substring(0,150)
-            ...
+            @{
+                string tijelo;
+                if (item.tekstObavijest.ToString().Length > 100) {
+                    tijelo = item.tekstObavijest.ToString().Substring(0, 100) + "..." ;
+                }
+                else {
+                    tijelo = item.tekstObavijest;
+                }
+            }
+            @tijelo
+
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.datumObavijest)

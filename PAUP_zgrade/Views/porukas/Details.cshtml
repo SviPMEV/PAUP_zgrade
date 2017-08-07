@@ -1,0 +1,49 @@
+﻿@model PAUP_zgrade.Models.poruka
+
+@{
+    ViewBag.Title = "Poruka";
+}
+
+<h2>Poruka od @Html.DisplayFor(model => model.posiljateljPoruke)</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.temaPoruke)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.temaPoruke)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tijeloPoruke)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tijeloPoruke)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datumPoruke)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datumPoruke)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.posiljateljPoruke)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.posiljateljPoruke)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.idporuka }) |*@
+    @Html.ActionLink("Natrag na listu", "Index")
+</p>
