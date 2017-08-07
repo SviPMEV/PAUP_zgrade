@@ -12,9 +12,11 @@ namespace PAUP_zgrade.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
+    using System.ComponentModel.DataAnnotations.Schema; 
+ 
 
     [Table("financije")]
+
     public partial class financije
     {
         [Display(Name = "ID financije")]

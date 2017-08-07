@@ -50,6 +50,8 @@ namespace PAUP_zgrade.Views
         {
             if (ModelState.IsValid)
             {
+                int noviId = (from st in db.zgradas select st).Max(x => x.idzgrada) + 1;
+                zgrada.idzgrada = noviId;
                 db.zgradas.Add(zgrada);
                 db.SaveChanges();
                 return RedirectToAction("Index");

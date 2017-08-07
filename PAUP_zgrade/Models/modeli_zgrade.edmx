@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="idfinancije" />
           </Key>
-          <Property Name="idfinancije" Type="int" Nullable="false" />
+          <Property Name="idfinancije" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="datumFinancije" Type="date" Nullable="false" />
           <Property Name="vrijednostFinancije" Type="decimal" Precision="10" Scale="0" Nullable="false" />
           <Property Name="zgradaFinancija" Type="int" Nullable="false" />
@@ -18,28 +18,28 @@
           <Key>
             <PropertyRef Name="idobavijesti" />
           </Key>
-          <Property Name="idobavijesti" Type="int" Nullable="false" />
+          <Property Name="idobavijesti" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="temaObavijest" Type="longtext" Nullable="false" />
           <Property Name="tekstObavijest" Type="longtext" Nullable="false" />
-          <Property Name="datumObavijest" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="datumObavijest" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="poruka">
           <Key>
             <PropertyRef Name="idporuka" />
           </Key>
-          <Property Name="idporuka" Type="int" Nullable="false" />
-          <Property Name="temaPoruke" Type="longtext" />
-          <Property Name="tijeloPoruke" Type="longtext" />
-          <Property Name="datumPoruke" Type="date" />
+          <Property Name="idporuka" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="temaPoruke" Type="longtext" Nullable="false" />
+          <Property Name="tijeloPoruke" Type="longtext" Nullable="false" />
+          <Property Name="datumPoruke" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="stanar">
           <Key>
             <PropertyRef Name="idstanar" />
           </Key>
-          <Property Name="idstanar" Type="int" Nullable="false" />
+          <Property Name="idstanar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ime" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="Prezime" Type="varchar" MaxLength="45" Nullable="false" />
-          <Property Name="OIB" Type="int" Nullable="false" />
+          <Property Name="OIB" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="45" />
           <Property Name="telefon" Type="int" />
           <Property Name="mobitel" Type="int" />
@@ -49,7 +49,7 @@
           <Key>
             <PropertyRef Name="idzgrada" />
           </Key>
-          <Property Name="idzgrada" Type="int" Nullable="false" />
+          <Property Name="idzgrada" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ulica" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="grad" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="postanskibroj" Type="int" />
@@ -72,7 +72,7 @@
           <Property Name="idstanar" Type="Int32" Nullable="false" />
           <Property Name="Ime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Prezime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="OIB" Type="Int32" Nullable="false" />
+          <Property Name="OIB" Type="String" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="telefon" Type="Int32" />
           <Property Name="mobitel" Type="Int32" />
@@ -117,9 +117,9 @@
             <PropertyRef Name="idporuka" />
           </Key>
           <Property Name="idporuka" Type="Int32" Nullable="false" />
-          <Property Name="temaPoruke" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-          <Property Name="tijeloPoruke" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-          <Property Name="datumPoruke" Type="DateTime" />
+          <Property Name="temaPoruke" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tijeloPoruke" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="datumPoruke" Type="DateTime" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
