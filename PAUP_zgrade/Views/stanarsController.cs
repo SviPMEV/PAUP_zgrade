@@ -46,7 +46,7 @@ namespace PAUP_zgrade.Views
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idstanar,Ime,Prezime,OIB,email,telefon,mobitel,zgrada")] stanar stanar)
+        public ActionResult Create([Bind(Include = "idstanar,Ime,Prezime,OIB,email,telefon,mobitel,zgrada,password_stanara")] stanar stanar)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace PAUP_zgrade.Views
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idstanar,Ime,Prezime,OIB,email,telefon,mobitel,zgrada")] stanar stanar)
+        public ActionResult Edit([Bind(Include = "idstanar,Ime,Prezime,OIB,email,telefon,mobitel,zgrada,password_stanara")] stanar stanar)
         {
             if (ModelState.IsValid)
             {

@@ -41,10 +41,11 @@
           <Property Name="Ime" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="Prezime" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="OIB" Type="varchar" MaxLength="12" Nullable="false" />
-          <Property Name="email" Type="varchar" MaxLength="45" />
+          <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="telefon" Type="int" />
           <Property Name="mobitel" Type="int" />
           <Property Name="zgrada" Type="int" Nullable="false" />
+          <Property Name="password_stanara" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="zgrada">
           <Key>
@@ -74,10 +75,11 @@
           <Property Name="Ime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Prezime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="OIB" Type="String" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="telefon" Type="Int32" />
           <Property Name="mobitel" Type="Int32" />
           <Property Name="zgrada" Type="Int32" Nullable="false" />
+          <Property Name="password_stanara" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="zgrada">
           <Key>
@@ -132,6 +134,7 @@
           <EntitySetMapping Name="stanars">
             <EntityTypeMapping TypeName="zgrade_dbModel.stanar">
               <MappingFragment StoreEntitySet="stanar">
+                <ScalarProperty Name="password_stanara" ColumnName="password_stanara" />
                 <ScalarProperty Name="idstanar" ColumnName="idstanar" />
                 <ScalarProperty Name="Ime" ColumnName="Ime" />
                 <ScalarProperty Name="Prezime" ColumnName="Prezime" />
