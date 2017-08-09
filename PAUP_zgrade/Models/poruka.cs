@@ -14,7 +14,7 @@ namespace PAUP_zgrade.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("obavijesti")]
+    [Table("poruka")]
 
     public partial class poruka
     { 

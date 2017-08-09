@@ -46,6 +46,7 @@
           <Property Name="mobitel" Type="int" />
           <Property Name="zgrada" Type="int" Nullable="false" />
           <Property Name="password_stanara" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="zgrada">
           <Key>
@@ -80,6 +81,7 @@
           <Property Name="mobitel" Type="Int32" />
           <Property Name="zgrada" Type="Int32" Nullable="false" />
           <Property Name="password_stanara" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="zgrada">
           <Key>
@@ -134,6 +136,7 @@
           <EntitySetMapping Name="stanars">
             <EntityTypeMapping TypeName="zgrade_dbModel.stanar">
               <MappingFragment StoreEntitySet="stanar">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="password_stanara" ColumnName="password_stanara" />
                 <ScalarProperty Name="idstanar" ColumnName="idstanar" />
                 <ScalarProperty Name="Ime" ColumnName="Ime" />

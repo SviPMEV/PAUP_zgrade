@@ -1,22 +1,47 @@
-﻿@{
-    Layout = null;
+﻿
+@model PAUP_zgrade.Models.stanar
+
+@{
+    ViewBag.Title = "testViewPage1";
 }
 
-<!DOCTYPE html>
+@using (Html.BeginForm("testViewPage1", "Test", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Mvc Simple Login Application Demo</legend>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    test tekst
-<<<<<<< HEAD
-        @ViewBag.Pozdrav - bla extra a!!!
-=======
-        @ViewBag.Pozdrav - bla extra 2!!!
->>>>>>> Goran
-    </div>
-</body>
-</html>
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+        <table>
+            <tr>
+                <td>@Html.LabelFor(a => a.email)</td>
+                <td>@Html.TextBoxFor(a => a.email)</td>
+                <td>@Html.ValidationMessageFor(a => a.email)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(a => a.password_stanara)
+                </td>
+                <td>
+                    @Html.PasswordFor(a => a.password_stanara)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(a => a.password_stanara)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </fieldset>
+}

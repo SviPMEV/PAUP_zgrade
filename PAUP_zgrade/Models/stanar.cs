@@ -55,5 +55,7 @@ namespace PAUP_zgrade.Models
 
         [Display(Name = "Vaša lozinka")]
         public string password_stanara { get; set; }
+
+        public bool IsActive { get; set; }
     }
 }
