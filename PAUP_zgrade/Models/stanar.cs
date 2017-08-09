@@ -52,5 +52,10 @@ namespace PAUP_zgrade.Models
         [Display(Name = "Broj zgrade")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
         public int zgrada { get; set; }
+
+        [Display(Name = "Vaša lozinka")]
+        public string password_stanara { get; set; }
+
+        public bool IsActive { get; set; }
     }
 }

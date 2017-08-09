@@ -1,0 +1,14 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@{
+        ViewBag.Title = "UserDashBoard";
+    }
+
+       <legend > Poštovani </legend>
+
+@if (Session["email"] == null)
+{ <h3>Odjavljeni ste sa svog računa</h3>}

@@ -105,10 +105,12 @@ CREATE TABLE `stanar` (
   `Ime` varchar(45) COLLATE cp1250_croatian_ci NOT NULL,
   `Prezime` varchar(45) COLLATE cp1250_croatian_ci NOT NULL,
   `OIB` varchar(12) COLLATE cp1250_croatian_ci NOT NULL,
-  `email` varchar(45) COLLATE cp1250_croatian_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE cp1250_croatian_ci NOT NULL,
   `telefon` int(11) DEFAULT NULL,
   `mobitel` int(11) DEFAULT NULL,
   `zgrada` int(11) NOT NULL,
+  `password_stanara` varchar(255) COLLATE cp1250_croatian_ci NOT NULL,
+  `IsActive` bit(1) NOT NULL,
   PRIMARY KEY (`idstanar`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -119,7 +121,7 @@ CREATE TABLE `stanar` (
 
 LOCK TABLES `stanar` WRITE;
 /*!40000 ALTER TABLE `stanar` DISABLE KEYS */;
-INSERT INTO `stanar` VALUES (1,'Marko','Markić','1234979894','mark.markic@gmail.com',4004655,92123457,1),(2,'Ana','Anić','1234567891fg','ankich@hotmail.com',420000546,951234555,2),(3,'Boskan','Blajbek','1234567892','blajbo@gmx.net',100065646,925446587,3),(4,'Ivica','Blulu','1234567895','blubuulu@gmail.com',40655466,92444512,1),(5,'blablab','blalsbl','1234567888','sgmas@gmai.com',92144156,92154666,1);
+INSERT INTO `stanar` VALUES (1,'Marko','Markić','63867317510','mark.markic@gmail.com',4004655,92123457,1,'test1','\0'),(2,'Ana','Anić','1234567891fg','ankich@hotmail.com',420000546,951234555,2,'test2','\0'),(3,'Boskan','Blajbek','1234567892','blajbo@gmx.net',100065646,925446587,3,'test3','\0'),(4,'Ivica','Blulu','1234567895','blubuulu@gmail.com',40655466,92444512,1,'test4','\0'),(5,'blablab','blalsbl','1234567888','sgmas@gmai.com',92144156,92154666,1,'test5','\0');
 /*!40000 ALTER TABLE `stanar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,4 +160,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-07 15:31:28
+-- Dump completed on 2017-08-09 19:52:45
