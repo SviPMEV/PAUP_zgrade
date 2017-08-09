@@ -201,7 +201,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\PrijavaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -333,7 +333,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Test\testViewPage1.cshtml" />
+    <Content Include="Views\Prijava\Prijava.cshtml" />
     <Content Include="Views\zgradas\Create.cshtml" />
     <Content Include="Views\zgradas\Delete.cshtml" />
     <Content Include="Views\zgradas\Details.cshtml" />
@@ -356,7 +356,7 @@
     <Content Include="Views\porukas\Details.cshtml" />
     <Content Include="Views\porukas\Edit.cshtml" />
     <Content Include="Views\porukas\Index.cshtml" />
-    <Content Include="Views\Test\UserDashBoard.cshtml" />
+    <Content Include="Views\Prijava\UserDashBoard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

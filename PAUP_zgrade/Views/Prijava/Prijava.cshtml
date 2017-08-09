@@ -2,27 +2,23 @@
 @model PAUP_zgrade.Models.stanar
 
 @{
-    ViewBag.Title = "testViewPage1";
+    ViewBag.Title = "Prijava";
 }
 
-@using (Html.BeginForm("testViewPage1", "Test", FormMethod.Post))
+@using (Html.BeginForm("Prijava", "Prijava", FormMethod.Post))
 {
-    <fieldset>
-        <legend>Mvc Simple Login Application Demo</legend>
+        <br />
+        <legend>Molim unesite svoj email i lozinku</legend>
+
 
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
-        @if (@ViewBag.Message != null)
-        {
-            <div style="border: 1px solid red">
-                @ViewBag.Message
-            </div>
-        }
+
         <table>
             <tr>
-                <td>@Html.LabelFor(a => a.email)</td>
-                <td>@Html.TextBoxFor(a => a.email)</td>
-                <td>@Html.ValidationMessageFor(a => a.email)</td>
+                <td>@Html.LabelFor(a => a.email)</td> 
+                <td>@Html.TextBoxFor(a => a.email)</td> 
+                <td>@Html.ValidationMessageFor(a => a.email)</td> 
             </tr>
             <tr>
                 <td>
@@ -38,10 +34,10 @@
             <tr>
                 <td></td>
                 <td>
-                    <input type="submit" value="Login" />
+                    <input type="submit" value="Prijava" />
                 </td>
                 <td></td>
             </tr>
         </table>
-    </fieldset>
+
 }
