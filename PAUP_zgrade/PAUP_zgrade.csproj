@@ -356,7 +356,7 @@
     <Content Include="Views\porukas\Details.cshtml" />
     <Content Include="Views\porukas\Edit.cshtml" />
     <Content Include="Views\porukas\Index.cshtml" />
-    <Content Include="Views\Prijava\UserDashBoard.cshtml" />
+    <Content Include="Views\Prijava\Odjavna_poruka.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

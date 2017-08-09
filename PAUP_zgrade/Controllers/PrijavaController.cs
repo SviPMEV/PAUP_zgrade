@@ -15,6 +15,7 @@ namespace PAUP_zgrade.Controllers
 
         public ActionResult Prijava()
         {
+            //if (pokusan_password == true) { ViewBag.Message = "Kriva lozinka"; }
             return View();
         }
 
@@ -22,37 +23,37 @@ namespace PAUP_zgrade.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Prijava(stanar objUser)
         {
+
                     var obj = db.stanars.SingleOrDefault(a => a.email.Equals(objUser.email) && a.password_stanara.Equals(objUser.password_stanara));
                     if (obj != null)
                     {
                     Session["idstanar"] = obj.idstanar;
                     Session["email"] = obj.email;
                     return RedirectToAction("Index","Home");
-                    }
+                    } else { ViewBag.Message = " Unesli ste krivu lozinku, pokušajte ponovo"; }
 
             return View(objUser);
         }
 
-        public ActionResult UserDashBoard()
-        {
-            if (Session["idstanar"] != null)
-            {
-                ViewBag.Message = "Dobrodošao " + Session["email"].ToString();
-                return View();
-
-
-            }
-            else
-            {
-                return RedirectToAction("Prijava", "Prijava");
-            }
-        }
+        //public ActionResult UserDashBoard()
+        //{
+        //    if (Session["idstanar"] != null)
+        //    {
+        //        return View();
+        //    }
+        //    else
+        //    {
+        //        public bool pokusan_password = true;
+        //        return RedirectToAction("Prijava", "Prijava");
+              
+        //    }
+        //}
 
         public ActionResult Odjava()
         {
             Session["email"] = null;
             Session["idstanar"] = null;
-            return View("UserDashBoard");
+            return View("Odjavna_poruka");
         }
     }
 }
