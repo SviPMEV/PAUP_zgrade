@@ -250,11 +250,16 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\admin_ind\financije.jpg" />
+    <Content Include="Content\img\admin_ind\financije_2.jpg" />
     <Content Include="Content\img\admin_ind\notices.jpg" />
     <Content Include="Content\img\admin_ind\poruke_icon.png" />
     <Content Include="Content\img\admin_ind\tenants.jpg" />
     <Content Include="Content\img\admin_ind\zgrade_umbrella.jpg" />
     <Content Include="Content\img\obavijesti\notices_coplek.png" />
+    <Content Include="Content\img\slider_zgrada_1.jpg" />
+    <Content Include="Content\img\slider_zgrada_2.jpg" />
+    <Content Include="Content\img\slider_zgrada_3.jpg" />
     <Content Include="Content\img\zgradaimg_1.jpg" />
     <Content Include="Content\img\zgradaimg_2.jpg" />
     <Content Include="Content\img\zgradaimg_3.jpg" />
