@@ -2,7 +2,7 @@
     ViewBag.Title = "Administrator - index";
 }
 
-
+@if (Session["email"] != null && Session["email"].ToString() == "upravitelj_zgradara@gmail.com") {
     <div class="jumbotron container">
         <h3>Dobrodošao upravitelju</h3>
         <p class="lead">Ova stranica sluzi za administraciju stanara i zgrada, kao i za postavljanje obavijesti</p>
@@ -47,4 +47,19 @@
         </p>
         <p><a class="btn btn-danger" href="~/porukas">Poruke  &raquo;</a></p>
     </div>
+    <div class="col-md-4">
+        <img src="~/Content/img/admin_ind/financije_2.jpg" width="360" height="270" />
+        <h2>Zgradar.Finance</h2>
+        <p>
+            Uređujte financije zgrade
+        </p>
+        <p><a class="btn btn-danger" href="/#">Financije &raquo;</a></p>
+    </div>
 </div>
+}
+else { 
+
+<div class="jumbotron container">
+    <h3>Stranica za upravitelja</h3>
+    <p class="lead">Poštovani, ova stranica je samo za upravitelja zgrada. Ukoliko ste vi to upravitelju, molim prijavite se!</p>
+</div>}

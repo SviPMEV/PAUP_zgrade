@@ -1,11 +1,20 @@
-﻿@if(Session["email"] != null)
+﻿@if(Session["email"] != null && Session["email"].ToString() != "upravitelj_zgradara@gmail.com")
 {
     <ul class="nav navbar-nav navbar-right" >
-        <li style="color:white; text-align:center; padding:0px; margin:0px"> Zdravo @Session["email"].ToString()@Html.ActionLink("Odjava", "Odjava", "Prijava") </li>
+        <li style="color:white; text-align:center; padding-top:15px; margin:0px"> Zdravo @Session["email"].ToString()</li>
+        <li style="color:white; text-align:center; padding:0px; margin:0px">@Html.ActionLink("Odjava", "Odjava", "Prijava") </li>
     </ul>
 }
 
-else
+else if(Session["email"] != null && Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li style="color:white; text-align:center; padding-top:15px; margin:0px"> Zdravo UPRAVITELJU</li>
+        <li style="color:white; text-align:center; padding:0px; margin:0px">@Html.ActionLink("Odjava", "Odjava", "Prijava") </li>
+    </ul>
+}
+
+else if (Session["email"] == null)
 {
     <ul class="nav navbar-nav navbar-right">
         <li>@Html.ActionLink("Prijava","Prijava","Prijava")</li>

@@ -19,6 +19,7 @@
                 <td>@Html.LabelFor(a => a.email)</td> 
                 <td>@Html.TextBoxFor(a => a.email)</td> 
                 <td>@Html.ValidationMessageFor(a => a.email)</td> 
+                   
             </tr>
             <tr>
                 <td>
@@ -27,8 +28,8 @@
                 <td>
                     @Html.PasswordFor(a => a.password_stanara)
                 </td>
-                <td>
-                    @Html.ValidationMessageFor(a => a.password_stanara)
+                <td style="color:red; text-decoration:solid">
+                    @ViewBag.Message
                 </td>
             </tr>
             <tr>
