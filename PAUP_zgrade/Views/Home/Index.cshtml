@@ -2,13 +2,47 @@
     ViewBag.Title = "PAUP zgrade - projekt";
 }
 
+@if (Session["email"] == null)
+{
+    <div class="container">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="~/Content/img/slider_zgrada_1.jpg" alt="Los Angeles" style="width:100%;">
+                </div>
+
+                <div class="item">
+                    <img src="~/Content/img/slider_zgrada_2.jpg" alt="Chicago" style="width:100%;">
+                </div>
+
+                <div class="item">
+                    <img src="~/Content/img/slider_zgrada_3.jpg" alt="New york" style="width:100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+
 <div class="jumbotron">
     <h1>Zgradar.NET</h1>
     <p class="lead">Ovo je aplikacija za administraciju zgrada, što uključuje pričuve, prigovore, komunikaciju između stanara i još brojne stavke.</p>
-    <p><a href="/home/about" class="btn btn-danger btn-lg">Više o tome &raquo;</a></p>
+    <p class="lead">Molimo prijavite se sa svojim računom kako bi mogli koristiti funkcije ove stranice.</p>
+    <p><a href="/home/about" class="btn btn-danger btn-lg">Više o tome &raquo;</a></p><p><a href="/Prijava/Prijava" class="btn btn-danger btn-lg">Prijava &raquo;</a></p>
 </div>
+}
 
+@if (Session["email"] != null)
+{ <br />
 <div class="row">
+@if (Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
+{
     <div class="col-md-4">
         <img src="~/Content/img/zgradaimg_1.jpg" width="360" height="270"/>
         <h2>Upravitelj.NET</h2>
@@ -17,6 +51,7 @@
         </p>
         <p><a class="btn btn-danger" href="/Home/AdminIndex">Administracija &raquo;</a></p>
     </div>
+}
     <div class="col-md-4">
         <img src="~/Content/img/zgradaimg_2.jpg" width="360" height="270"/>
         <h2>Obavijesti</h2>
@@ -33,4 +68,15 @@
         </p>
         <p><a class="btn btn-danger" href="/porukas/create">Kontaktiraj &raquo;</a></p>
     </div>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="~/Content/img/admin_ind/financije.jpg" width="360" height="270" />
+            <h2>Pregled financija</h2>
+            <p>
+                Pregledaj stanja financija zgrade
+            </p>
+            <p><a class="btn btn-danger" href="/#">Financije &raquo;</a></p>
+        </div>
+    </div>
 </div>
+}
