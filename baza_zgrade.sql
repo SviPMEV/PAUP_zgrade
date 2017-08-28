@@ -101,7 +101,7 @@ DROP TABLE IF EXISTS `stanar`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `stanar` (
-  `idstanar` int(11) NOT NULL AUTO_INCREMENT,
+  `idstanar` int(255) NOT NULL,
   `Ime` varchar(45) COLLATE cp1250_croatian_ci NOT NULL,
   `Prezime` varchar(45) COLLATE cp1250_croatian_ci NOT NULL,
   `OIB` varchar(12) COLLATE cp1250_croatian_ci NOT NULL,
@@ -112,7 +112,7 @@ CREATE TABLE `stanar` (
   `password_stanara` varchar(255) COLLATE cp1250_croatian_ci NOT NULL,
   `IsActive` bit(1) NOT NULL,
   PRIMARY KEY (`idstanar`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +121,7 @@ CREATE TABLE `stanar` (
 
 LOCK TABLES `stanar` WRITE;
 /*!40000 ALTER TABLE `stanar` DISABLE KEYS */;
-INSERT INTO `stanar` VALUES (1,'Marko','Markić','63867317510','mark.markic@gmail.com',4004655,92123457,1,'test1','\0'),(2,'Ana','Anić','1234567891fg','ankich@hotmail.com',420000546,951234555,2,'test2','\0'),(3,'Boskan','Blajbek','1234567892','blajbo@gmx.net',100065646,925446587,3,'test3','\0'),(4,'Ivica','Blulu','1234567895','blubuulu@gmail.com',40655466,92444512,1,'test4','\0'),(5,'blablab','blalsbl','1234567888','sgmas@gmai.com',92144156,92154666,1,'test5','\0');
+INSERT INTO `stanar` VALUES (1,'Marko','Markić','5151561651','mark.markic@gmail.com',4004655,92123457,1,'test1','\0'),(2,'Ana','Anić','1234567891','ankich@hotmail.com',420000546,951234555,2,'test2','\0'),(3,'Boskan','Blajbek','1234567892','blajbo@gmx.net',100065646,925446587,3,'test3','\0'),(4,'Ivica','Blulu','1234567895','blubuulu@gmail.com',40655466,92444512,1,'test4','\0'),(5,'blablab','blalsbl','1234567888','sgmas@gmai.com',92144156,92154666,1,'test5','\0'),(10,'Upravite','Upraviteljko','1233656564','upravitelj_zgradara@gmail.com',45534358,87378387,1,'upravitelj','\0');
 /*!40000 ALTER TABLE `stanar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -160,4 +160,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-09 19:52:45
+-- Dump completed on 2017-08-28 14:51:06
