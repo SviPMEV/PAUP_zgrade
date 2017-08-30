@@ -1,4 +1,5 @@
-﻿@Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+﻿@Scripts.Render("~/bundles/jquery")
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"> </script>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,7 +10,7 @@
         InsertionMode = InsertionMode.Replace,
         HttpMethod = "Get",
         LoadingElementId = "statusLabela",
-        Confirm = "Da li zelite osvjeziti popis?"
+        //Confirm = "Da li zelite osvjeziti popis?"
 
     };
 }
@@ -28,8 +29,7 @@
 </p>
 
 @using (@Ajax.BeginForm("ListaFinancijaPartial", "financijes", ajaxOpcije
-           , new { @class = "form-inline", id = "form1" }))
-{
+           , new { @class = "form-inline", id = "form1" })){
     <div class="form-group">
         @Html.Label("zgrada", new { @class = "sr-only", id = "form1" })
         @Html.TextBox("zgrada", "", new { @class = "form-control", placeholder = "zgrada" })
