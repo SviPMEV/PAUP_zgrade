@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PAUP_zgrade.Models;
+using System.Threading;
 
 namespace PAUP_zgrade.Views
 {
@@ -18,6 +19,24 @@ namespace PAUP_zgrade.Views
         public ActionResult Index()
         {
             return View(db.financijes.ToList());
+        }
+
+        public ActionResult ListaFinancija()
+        {
+            return View();
+        }
+
+        public ActionResult ListaFinancijaPartial(string zgrada)
+        {
+            //simuliramo neki posao na serveru
+            Thread.Sleep(2000);
+            // EF - lista sa filtriranjem
+            var lista = from s in db.financijes select s;
+            // filtriranja
+            if (!String.IsNullOrEmpty(zgrada))
+                lista = lista.Where(st => st.zgradaFinancija.ToString().Equals(zgrada)); 
+            // vraćamo view sa listom svih studenata kao ulaznim parametrom
+            return PartialView(lista);
         }
 
         // GET: financijes/Details/5
