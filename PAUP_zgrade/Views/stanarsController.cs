@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PAUP_zgrade.Models;
+using System.Threading;
 
 namespace PAUP_zgrade.Views
 {
@@ -18,6 +19,20 @@ namespace PAUP_zgrade.Views
         public ActionResult Index()
         {
             return View(db.stanars.ToList());
+        }
+
+        public ActionResult stanariPartial(string stanari, string zgrada)
+        {
+            //simuliramo neki posao na serveru
+            Thread.Sleep(2000);
+            // EF - lista sa filtriranjem
+            var popis = from s in db.stanars select s;
+            // filtriranja
+            if (!String.IsNullOrEmpty(stanari))
+                popis = popis.Where(st => (st.Ime + " " + st.Prezime).ToUpper().Contains(stanari.ToUpper()));
+            if (!String.IsNullOrEmpty(zgrada))
+                popis = popis.Where(st => st.zgrada.ToString().Equals(zgrada));
+            return PartialView(popis);
         }
 
         // GET: stanars/Details/5

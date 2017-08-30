@@ -57,8 +57,10 @@
         <div class="form-group">
             @Html.LabelFor(model => model.obavljenPosao, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.obavljenPosao, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.obavljenPosao, "", new { @class = "text-danger" })
+                @Html.RadioButtonFor(model => model.obavljenPosao, "1") DA
+                @Html.RadioButtonFor(model => model.obavljenPosao, "0") NE
+                @*@Html.EditorFor(model => model.obavljenPosao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.obavljenPosao, "", new { @class = "text-danger" })*@
             </div>
         </div>
 

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PAUP_zgrade.Models.stanar>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idstanar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prezime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OIB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mobitel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.zgrada)
+        </td>
+        <td>
+            @Html.ActionLink("Promjena", "Edit", new { id = item.idstanar }) |
+            @Html.ActionLink("Detalji", "Details", new { id = item.idstanar }) |
+            @Html.ActionLink("Obriši", "Delete", new { id = item.idstanar })
+        </td>
+    </tr>
+}
