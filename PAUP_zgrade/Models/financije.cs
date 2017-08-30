@@ -34,5 +34,13 @@ namespace PAUP_zgrade.Models
         [Display(Name = "Zgrada financijske transakcije")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
         public int zgradaFinancija { get; set; }
+
+        [Display(Name = "Opis financijske transakcije")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "{0} je obavezan podatak")]
+        public string opisFinancije { get; set; }
+
+        [Display(Name = "Obavljena trasakcija?")]
+        [Required]
+        public sbyte obavljenPosao { get; set; }
     }
 }
