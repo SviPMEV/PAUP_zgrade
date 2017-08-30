@@ -11,8 +11,10 @@
           </Key>
           <Property Name="idfinancije" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="datumFinancije" Type="date" Nullable="false" />
-          <Property Name="vrijednostFinancije" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="vrijednostFinancije" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="zgradaFinancija" Type="int" Nullable="false" />
+          <Property Name="opisFinancije" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="obavljenPosao" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="obavijesti">
           <Key>
@@ -37,7 +39,7 @@
           <Key>
             <PropertyRef Name="idstanar" />
           </Key>
-          <Property Name="idstanar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idstanar" Type="int" Nullable="false" />
           <Property Name="Ime" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="Prezime" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="OIB" Type="varchar" MaxLength="12" Nullable="false" />
@@ -107,6 +109,8 @@
           <Property Name="datumFinancije" Type="DateTime" Nullable="false" />
           <Property Name="vrijednostFinancije" Type="Decimal" Nullable="false" />
           <Property Name="zgradaFinancija" Type="Int32" Nullable="false" />
+          <Property Name="opisFinancije" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="obavljenPosao" Type="SByte" Nullable="false" />
         </EntityType>
         <EntityType Name="obavijesti">
           <Key>
@@ -162,6 +166,8 @@
           <EntitySetMapping Name="financijes">
             <EntityTypeMapping TypeName="zgrade_dbModel.financije">
               <MappingFragment StoreEntitySet="financije">
+                <ScalarProperty Name="obavljenPosao" ColumnName="obavljenPosao" />
+                <ScalarProperty Name="opisFinancije" ColumnName="opisFinancije" />
                 <ScalarProperty Name="zgradaFinancija" ColumnName="zgradaFinancija" />
                 <ScalarProperty Name="vrijednostFinancije" ColumnName="vrijednostFinancije" />
                 <ScalarProperty Name="datumFinancije" ColumnName="datumFinancije" />
