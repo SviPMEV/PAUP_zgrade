@@ -1,7 +1,21 @@
-﻿@model IEnumerable<PAUP_zgrade.Models.stanar>
+﻿@Scripts.Render("~/bundles/jquery")
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"> </script>
+
+@model IEnumerable<PAUP_zgrade.Models.stanar>
 
 @{
     ViewBag.Title = "Lista stanara";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    AjaxOptions ajaxOpcije = new AjaxOptions
+    {
+        UpdateTargetId = "listastanara",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "Get",
+        LoadingElementId = "statusLabela",
+        //Confirm = "Da li zelite osvjeziti popis?"
+
+    };
 }
 @if (Session["email"] != null && Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
 {
@@ -10,6 +24,27 @@
 <p>
     @Html.ActionLink("Dodaj novog stanara", "Create")
 </p>
+
+using (@Ajax.BeginForm("stanariPartial", "stanars", ajaxOpcije
+                           , new { @class = "form-inline", id = "form1" }))
+{
+    <div class="form-group">
+        @Html.Label("stanari", new { @class = "sr-only", id = "form1" })
+        @Html.TextBox("stanari", "", new { @class = "form-control", placeholder = "Ime ili prezime stanara" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("zgrada", new { @class = "sr-only", id = "form1" })
+        @Html.TextBox("zgrada", "", new { @class = "form-control", placeholder = "Broj zgrade stanara" })
+    </div>
+    <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Traži
+    </button><br />
+    <label id="statusLabela" class="label label-warning" style="display:none">
+        Dohvat podataka sa servera...
+    </label>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -39,39 +74,9 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idstanar)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Prezime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OIB)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telefon)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.mobitel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.zgrada)
-        </td>
-        <td>
-            @Html.ActionLink("Promjena", "Edit", new { id=item.idstanar }) |
-            @Html.ActionLink("Detalji", "Details", new { id=item.idstanar }) |
-            @Html.ActionLink("Obriši", "Delete", new { id=item.idstanar })
-        </td>
-    </tr>
-}
+    <tbody id="listastanara">
+        @Html.Action("stanariPartial", "stanars")
+    </tbody>
 
 </table>
 }

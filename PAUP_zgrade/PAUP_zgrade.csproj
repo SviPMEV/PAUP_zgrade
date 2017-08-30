@@ -371,6 +371,7 @@
     <Content Include="Views\financijes\Edit.cshtml" />
     <Content Include="Views\financijes\ListaFinancija.cshtml" />
     <Content Include="Views\financijes\ListaFinancijaPartial.cshtml" />
+    <Content Include="Views\stanars\stanariPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
