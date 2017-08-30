@@ -23,10 +23,10 @@ namespace PAUP_zgrade.Views
 
         public ActionResult ListaFinancija()
         {
-            return View();
+            return View(db.financijes.ToList());
         }
 
-        public ActionResult ListaFinancijaPartial(string zgrada)
+        public ActionResult ListaFinancijaPartial(string zgrada, string obavljenafinancija)
         {
             //simuliramo neki posao na serveru
             Thread.Sleep(2000);
@@ -34,9 +34,11 @@ namespace PAUP_zgrade.Views
             var lista = from s in db.financijes select s;
             // filtriranja
             if (!String.IsNullOrEmpty(zgrada))
-                lista = lista.Where(st => st.zgradaFinancija.ToString().Equals(zgrada)); 
+                lista = lista.Where(st => st.zgradaFinancija.ToString().Equals(zgrada));
+            if (!String.IsNullOrEmpty(obavljenafinancija))
+                lista = lista.Where(st => st.obavljenPosao.ToString() == obavljenafinancija);
             // vraćamo view sa listom svih studenata kao ulaznim parametrom
-            return PartialView(lista);
+            return PartialView(lista.ToList());
         }
 
         // GET: financijes/Details/5
@@ -71,7 +73,7 @@ namespace PAUP_zgrade.Views
             {
                 db.financijes.Add(financije);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ListaFinancija");
             }
 
             return View(financije);
@@ -103,7 +105,7 @@ namespace PAUP_zgrade.Views
             {
                 db.Entry(financije).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ListaFinancija");
             }
             return View(financije);
         }
@@ -131,7 +133,7 @@ namespace PAUP_zgrade.Views
             financije financije = db.financijes.Find(id);
             db.financijes.Remove(financije);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("ListaFinancija");
         }
 
         protected override void Dispose(bool disposing)

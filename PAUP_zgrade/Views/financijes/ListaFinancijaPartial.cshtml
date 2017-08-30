@@ -12,8 +12,11 @@
             @Html.DisplayFor(modelItem => item.datumFinancije)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.vrijednostFinancije)
-            @{ zbrojTransakcija = zbrojTransakcija + item.vrijednostFinancije;}
+            @Html.DisplayFor(modelItem => item.vrijednostFinancije) kn
+            @{ if (item.obavljenPosao == 1)
+                {
+                    zbrojTransakcija = zbrojTransakcija + item.vrijednostFinancije;
+                }}
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.zgradaFinancija)
@@ -22,7 +25,10 @@
             @Html.DisplayFor(modelItem => item.opisFinancije)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.obavljenPosao)
+            @{ if (item.obavljenPosao == 1) { <text>DA</text> }
+                else { <text>NE</text>}
+}
+            @*@Html.DisplayFor(modelItem => item.obavljenPosao)*@
         </td>
         <td>
             @if (Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
@@ -33,9 +39,10 @@
             }
         </td>
     </tr>
-                    }
                 }
-<p>
-    Ukupno stanje na dan @DateTime.Now.Day. @DateTime.Now.Month. @DateTime.Now.Year. je:
-    <b><span style="color:red;"> @zbrojTransakcija.ToString() kn</span></b>
-</p>
+                <p>
+                    Ukupno stanje svih zgrada na dan @DateTime.Now.Day. @DateTime.Now.Month. @DateTime.Now.Year. je:
+                    <b><span style="color:red;"> @zbrojTransakcija.ToString() kn</span></b>
+                </p>
+}
+
