@@ -34,7 +34,7 @@ namespace PAUP_zgrade.Models
         [Display(Name = "Datum poruke")]
         [Required(ErrorMessage = "Datum je obavezan podatak")]
         [DataType(DataType.Date)]
-        // ako ne napisemo fiksno ovaj format Google Chrome ne�e dobro prikazati datumsko po
+        // ako ne napisemo fiksno ovaj format Google Chrome nece dobro prikazati datumsko po
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime datumPoruke { get; set; }
 

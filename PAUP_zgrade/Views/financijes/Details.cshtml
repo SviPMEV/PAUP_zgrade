@@ -1,0 +1,58 @@
+﻿@model PAUP_zgrade.Models.financije
+
+@{
+    ViewBag.Title = "Pregled financijske stavke";
+}
+
+<h2>Pregled financijske stavke</h2>
+
+<div>
+    <h4>@Html.LabelFor(model => model.idfinancije) @Html.DisplayFor(model => model.idfinancije)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.datumFinancije)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datumFinancije)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vrijednostFinancije)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vrijednostFinancije)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zgradaFinancija)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zgradaFinancija)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.opisFinancije)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.opisFinancije)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.obavljenPosao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.obavljenPosao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Izmjena", "Edit", new { id = Model.idfinancije }) |
+    @Html.ActionLink("Natrag na listu", "Index")
+</p>
