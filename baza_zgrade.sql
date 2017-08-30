@@ -32,7 +32,7 @@ CREATE TABLE `financije` (
   `opisFinancije` varchar(255) COLLATE cp1250_croatian_ci NOT NULL,
   `obavljenPosao` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`idfinancije`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `financije` (
 
 LOCK TABLES `financije` WRITE;
 /*!40000 ALTER TABLE `financije` DISABLE KEYS */;
-INSERT INTO `financije` VALUES (1,'2015-12-22',155.44,1,'Placanje pricuve Mirko Markec 12/2015',1),(2,'2016-11-10',-200.00,1,'Kupljena žarulja',1),(3,'2016-11-11',155.44,1,'Placanje pricuve Mirko Markec 11/2016',1),(4,'2016-12-23',-12550.00,2,'Reparatura fasade',1),(5,'2013-12-26',155.44,2,'Pricuva Ankica 12/2013',1);
+INSERT INTO `financije` VALUES (1,'2015-12-22',155.44,1,'Placanje pricuve Mirko Markec 12/2015',1),(2,'2016-11-10',-200.00,1,'Kupljena žarulja',1),(3,'2016-11-11',155.44,1,'Placanje pricuve Mirko Markec 11/2016',1),(4,'2016-12-23',-12550.00,2,'Reparatura fasade',1),(5,'2013-12-26',155.44,2,'Pricuva Ankica 12/2013',0),(6,'2017-01-05',10000.00,2,'Donacija EU',1),(7,'2017-01-31',345.00,2,'test',1),(8,'2016-01-31',435.44,2,'test2',0),(9,'2016-11-01',343.33,1,'samo test radio buttona',1);
 /*!40000 ALTER TABLE `financije` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-30 12:21:25
+-- Dump completed on 2017-08-30 21:27:06
