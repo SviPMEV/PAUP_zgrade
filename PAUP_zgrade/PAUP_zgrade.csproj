@@ -242,6 +242,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Views\financijesController.cs" />
     <Compile Include="Views\obavijestisController.cs" />
     <Compile Include="Views\porukasController.cs" />
     <Compile Include="Views\stanarsController.cs" />
@@ -362,6 +363,11 @@
     <Content Include="Views\porukas\Edit.cshtml" />
     <Content Include="Views\porukas\Index.cshtml" />
     <Content Include="Views\Prijava\Odjavna_poruka.cshtml" />
+    <Content Include="Views\financijes\Create.cshtml" />
+    <Content Include="Views\financijes\Delete.cshtml" />
+    <Content Include="Views\financijes\Details.cshtml" />
+    <Content Include="Views\financijes\Edit.cshtml" />
+    <Content Include="Views\financijes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

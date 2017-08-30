@@ -1,0 +1,76 @@
+﻿@model IEnumerable<PAUP_zgrade.Models.financije>
+
+@{
+    ViewBag.Title = "Lista financijskih transakcija";
+}
+@if (Session["email"] != null)
+{
+
+<h2>Lista financijskih transakcija</h2>
+
+<p>
+@if (Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
+{
+    @Html.ActionLink("Dodaj financijsku transakciju", "Create")
+}
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.datumFinancije)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vrijednostFinancije)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zgradaFinancija)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.opisFinancije)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.obavljenPosao)
+        </th>
+        <th></th>
+    </tr>
+
+@{ 
+    decimal zbrojTransakcija = 0;
+}
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.datumFinancije)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vrijednostFinancije)
+            @{ zbrojTransakcija = zbrojTransakcija + item.vrijednostFinancije;}
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.zgradaFinancija)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.opisFinancije)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.obavljenPosao)
+        </td>
+        <td>
+@if (Session["email"].ToString() == "upravitelj_zgradara@gmail.com") { 
+            @Html.ActionLink("Promjena", "Edit", new { id = item.idfinancije }) <span> | </span>
+            @Html.ActionLink("Detalji", "Details", new { id = item.idfinancije })            <span> | </span>
+            @Html.ActionLink("Obriši", "Delete", new { id = item.idfinancije })
+}
+        </td>
+    </tr>
+}
+</table>
+<p>
+    Ukupno stanje na dan @DateTime.Now.Day. @DateTime.Now.Month. @DateTime.Now.Year. je: 
+    <b><span style="color:red;"> @zbrojTransakcija.ToString() kn</span></b>
+</p>
+
+                }
