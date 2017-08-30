@@ -1,0 +1,81 @@
+﻿@Scripts.Render("~/bundles/jquery")
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"> </script>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    AjaxOptions ajaxOpcije = new AjaxOptions
+    {
+        UpdateTargetId = "lista",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "Get",
+        LoadingElementId = "statusLabela",
+        //Confirm = "Da li zelite osvjeziti popis?"
+
+    };
+}
+
+
+@*@if(Session["email"] != null)
+{*@
+
+<h2>Lista financijskih transakcija</h2>
+
+<p>
+@if (Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
+{
+    @Html.ActionLink("Dodaj financijsku transakciju", "Create")
+}
+</p>
+
+@using (@Ajax.BeginForm("ListaFinancijaPartial", "financijes", ajaxOpcije
+           , new { @class = "form-inline", id = "form1" })){
+    <div class="form-group">
+        @Html.Label("zgrada", new { @class = "sr-only", id = "form1" })
+        @Html.TextBox("zgrada", "", new { @class = "form-control", placeholder = "Broj zgrade" })
+    </div>
+    <div class="form-group">
+        <span> Financija proknjižena?</span>
+        <label class="radio-inline">
+            @Html.RadioButton("obavljenafinancija", "1") Evidentirano
+        </label>
+        <label class="radio-inline">
+            @Html.RadioButton("obavljenafinancija", "0") Nije evidentirano
+        </label>
+        <label class="radio-inline">
+            @Html.RadioButton("obavljenafinancija", "") Sve
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Traži
+    </button><br />
+    <label id="statusLabela" class="label label-warning" style="display:none">
+        Dohvat podataka sa servera...
+    </label>
+}
+
+<table class="table">
+    <tr>
+        <th>            Datum Financije       </th>
+        <th>            Vrijednost transakcije        </th>
+        <th>            Zgrada       </th>
+        <th>            Opis        </th>
+        <th>            Financija evidentirana       </th>
+        <th></th>
+    </tr>
+    <tbody id="lista">
+        @Html.Action("ListaFinancijaPartial", "financijes")
+    </tbody>
+
+</table>
+
+
+@*}*@
+
+
+@*<script type="text/javascript">
+    function OsvjeziListu() {
+        $('#form1').submit();
+    }
+</script>*@
+
