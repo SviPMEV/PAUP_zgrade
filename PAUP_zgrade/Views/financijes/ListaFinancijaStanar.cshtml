@@ -1,0 +1,57 @@
+﻿@Scripts.Render("~/bundles/jquery")
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    AjaxOptions ajaxOpcije = new AjaxOptions
+    {
+        UpdateTargetId = "tabela",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "Get",
+        LoadingElementId = "statusLabela",
+        //Confirm = "Da li zelite osvjeziti popis?"
+
+    };
+}
+
+
+@*@if(Session["email"] != null)
+{*@
+
+<h2>Lista financijskih transakcija</h2>
+
+
+@using (@Ajax.BeginForm("ListaFinancijaStanarPartial", "financijes", ajaxOpcije
+           , new { @class = "form-inline", id = "form1" })){
+    <div class="form-group">
+        <span> Financija proknjižena?</span>
+        <label class="radio-inline">
+            @Html.RadioButton("obavljenafinancija", "1") Evidentirano
+        </label>
+        <label class="radio-inline">
+            @Html.RadioButton("obavljenafinancija", "0") Nije evidentirano
+        </label>
+        <label class="radio-inline">
+            @Html.RadioButton("obavljenafinancija", "") Sve
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Traži
+    </button><br />
+    <label id="statusLabela" class="label label-warning" style="display:none">
+        Dohvat podataka sa servera...
+    </label>
+}
+
+
+@Html.Action("ListaFinancijaStanarPartial", "financijes")
+
+@*}*@
+
+
+@*<script type="text/javascript">
+    function OsvjeziListu() {
+        $('#form1').submit();
+    }
+</script>*@
+

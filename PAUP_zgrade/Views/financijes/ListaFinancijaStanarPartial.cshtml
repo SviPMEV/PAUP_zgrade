@@ -14,14 +14,10 @@
                     <th></th>
                 </tr>
             </thead>
-
-
                     <tbody id="lista">
                         @{
-                                decimal zbrojTransakcija = 0;
-
-
-                            foreach (var item in Model)
+                            decimal zbrojTransakcija = 0;
+                            foreach (var item in Model.Where(n => n.zgradaFinancija == ((int)Session["zgrada"])))
                             {
                                 <tr>
                                     <td>
@@ -48,14 +44,6 @@
                                                 { <text>NE</text>}
                                             }
                                             @*@Html.DisplayFor(modelItem => item.obavljenPosao)*@
-                                        </td>
-                                        <td>
-                                            @if (Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
-                                            {
-                                                @Html.ActionLink("Promjena", "Edit", new { id = item.idfinancije }) <span> | </span>
-                                                @Html.ActionLink("Detalji", "Details", new { id = item.idfinancije })            <span> | </span>
-                                                @Html.ActionLink("Obriši", "Delete", new { id = item.idfinancije })
-                                            }
                                         </td>
                                     </tr>
                                                 }
