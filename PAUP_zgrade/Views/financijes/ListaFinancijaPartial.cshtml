@@ -1,48 +1,72 @@
-﻿@using PAUP_zgrade.Models
+﻿﻿@using PAUP_zgrade.Models
 @model IEnumerable<PAUP_zgrade.Models.financije>
 
-@{
-    decimal zbrojTransakcija = 0;
+
+    <div id="tabela">
+        <table class="table">
+            <thead class="table-headers">
+                <tr>
+                    <th>            Datum Financije       </th>
+                    <th>            Vrijednost transakcije        </th>
+                    <th>            Zgrada       </th>
+                    <th>            Opis        </th>
+                    <th>            Posao obavljen       </th>
+                    <th></th>
+                </tr>
+            </thead>
 
 
-    foreach (var item in Model)
-    {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.datumFinancije)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.vrijednostFinancije) kn
-            @{ if (item.obavljenPosao == 1)
-                {
-                    zbrojTransakcija = zbrojTransakcija + item.vrijednostFinancije;
-                }}
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.zgradaFinancija)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.opisFinancije)
-        </td>
-        <td>
-            @{ if (item.obavljenPosao == 1) { <text>DA</text> }
-                else { <text>NE</text>}
-}
-            @*@Html.DisplayFor(modelItem => item.obavljenPosao)*@
-        </td>
-        <td>
-            @if (Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
-            {
-                @Html.ActionLink("Promjena", "Edit", new { id = item.idfinancije }) <span> | </span>
-                @Html.ActionLink("Detalji", "Details", new { id = item.idfinancije })            <span> | </span>
-                @Html.ActionLink("Obriši", "Delete", new { id = item.idfinancije })
-            }
-        </td>
-    </tr>
-                }
+                    <tbody id="lista">
+                        @{
+                                decimal zbrojTransakcija = 0;
+
+
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.datumFinancije)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.vrijednostFinancije) kn
+                                        @{ if (item.obavljenPosao == 1)
+                                            {
+                                                zbrojTransakcija = zbrojTransakcija + item.vrijednostFinancije;
+                                            }}
+                                   
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.zgradaFinancija)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.opisFinancije)
+                                        </td>
+                                        <td>
+                                            @{ if (item.obavljenPosao == 1)
+                                                { <text>DA</text> }
+                                                else
+                                                { <text>NE</text>}
+                                            }
+                                            @*@Html.DisplayFor(modelItem => item.obavljenPosao)*@
+                                        </td>
+                                        <td>
+                                            @if (Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
+                                            {
+                                                @Html.ActionLink("Promjena", "Edit", new { id = item.idfinancije }) <span> | </span>
+                                                @Html.ActionLink("Detalji", "Details", new { id = item.idfinancije })            <span> | </span>
+                                                @Html.ActionLink("Obriši", "Delete", new { id = item.idfinancije })
+                                            }
+                                        </td>
+                                    </tr>
+                                                }
+
+                                        }
+
+
+                    </tbody>
+                </table>
                 <p>
-                    Ukupno stanje svih zgrada na dan @DateTime.Now.Day. @DateTime.Now.Month. @DateTime.Now.Year. je:
+                    Ukupno stanje zgrada na dan @DateTime.Now.Day. @DateTime.Now.Month. @DateTime.Now.Year. je:
                     <b><span style="color:red;"> @zbrojTransakcija.ToString() kn</span></b>
                 </p>
-}
-
+            </div> 

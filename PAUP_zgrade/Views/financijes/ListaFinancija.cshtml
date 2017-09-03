@@ -1,12 +1,11 @@
 ﻿@Scripts.Render("~/bundles/jquery")
-<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"> </script>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     AjaxOptions ajaxOpcije = new AjaxOptions
     {
-        UpdateTargetId = "lista",
+        UpdateTargetId = "tabela",
         InsertionMode = InsertionMode.Replace,
         HttpMethod = "Get",
         LoadingElementId = "statusLabela",
@@ -54,21 +53,8 @@
     </label>
 }
 
-<table class="table">
-    <tr>
-        <th>            Datum Financije       </th>
-        <th>            Vrijednost transakcije        </th>
-        <th>            Zgrada       </th>
-        <th>            Opis        </th>
-        <th>            Financija evidentirana       </th>
-        <th></th>
-    </tr>
-    <tbody id="lista">
-        @Html.Action("ListaFinancijaPartial", "financijes")
-    </tbody>
 
-</table>
-
+@Html.Action("ListaFinancijaPartial", "financijes")
 
 @*}*@
 
