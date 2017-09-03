@@ -3,7 +3,8 @@
 @{
     ViewBag.Title = "Pregled obavijesti";
 }
-
+@if (Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
+{
 <h2>Pregled obavijesti</h2>
 
 <div>
@@ -40,3 +41,6 @@
     @Html.ActionLink("Izmjena", "Edit", new { id = Model.idobavijesti }) |
     @Html.ActionLink("Natrag na listu", "Index")
 </p>
+}
+else
+{ <br /><p>Molimo ulogirajte se</p>}

@@ -3,7 +3,8 @@
 @{
     ViewBag.Title = "Detalji o zgradi";
 }
-
+@if (Session["email"] != null && Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
+{
 <h2>Detalji o zgradi</h2>
 
 <div>
@@ -40,3 +41,11 @@
     @Html.ActionLink("Promjena podataka", "Edit", new { id = Model.idzgrada }) |
     @Html.ActionLink("Natrag  na listu", "Index")
 </p>
+}
+else
+{
+
+    <div class="jumbotron container">
+        <h3>Stranica za upravitelja</h3>
+        <p class="lead">Poštovani, ova stranica je samo za upravitelja zgrada. Ukoliko ste vi to upravitelju, molim prijavite se!</p>
+    </div>}

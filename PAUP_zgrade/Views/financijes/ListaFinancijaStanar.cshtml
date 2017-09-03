@@ -15,14 +15,15 @@
 }
 
 
-@*@if(Session["email"] != null)
-{*@
+@if (Session["email"] != null)
+{
 
-<h2>Lista financijskih transakcija</h2>
+<h2>Lista financijskih transakcija zgrade br. @Session["zgrada"].ToString()</h2>
 
 
-@using (@Ajax.BeginForm("ListaFinancijaStanarPartial", "financijes", ajaxOpcije
-           , new { @class = "form-inline", id = "form1" })){
+    using (@Ajax.BeginForm("ListaFinancijaStanarPartial", "financijes", ajaxOpcije
+               , new { @class = "form-inline", id = "form1" }))
+    {
     <div class="form-group">
         <span> Financija proknjižena?</span>
         <label class="radio-inline">
@@ -41,12 +42,14 @@
     <label id="statusLabela" class="label label-warning" style="display:none">
         Dohvat podataka sa servera...
     </label>
-}
+    }
 
 
 @Html.Action("ListaFinancijaStanarPartial", "financijes")
 
-@*}*@
+}
+else
+{ <br /><p>Molimo ulogirajte se</p>}
 
 
 @*<script type="text/javascript">

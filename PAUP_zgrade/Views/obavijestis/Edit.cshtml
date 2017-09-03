@@ -4,13 +4,15 @@
     ViewBag.Title = "Izmjena obavijesti";
 }
 
+@if (Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
+{
 <h2>Izmjena obavijesti</h2>
 
 
-@using (Html.BeginForm())
-{
+    using (Html.BeginForm())
+    {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>@Html.LabelFor(model => model.idobavijesti) @Html.DisplayFor(model => model.idobavijesti)</h4>
         <hr />
@@ -47,11 +49,14 @@
             </div>
         </div>
     </div>
-}
+    }
 
 <div>
     @Html.ActionLink("Natrag na listu", "Index")
 </div>
+}
+else
+{ <br /><p>Molimo ulogirajte se</p>}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

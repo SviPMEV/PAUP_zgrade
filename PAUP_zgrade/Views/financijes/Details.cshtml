@@ -3,7 +3,8 @@
 @{
     ViewBag.Title = "Pregled financijske stavke";
 }
-
+@if (Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
+{
 <h2>Pregled financijske stavke</h2>
 
 <div>
@@ -56,3 +57,5 @@
     @Html.ActionLink("Izmjena", "Edit", new { id = Model.idfinancije }) |
     @Html.ActionLink("Natrag na listu", "ListaFinancija")
 </p>
+}
+else { <br /><p> Molimo ulogirajte se</p>}

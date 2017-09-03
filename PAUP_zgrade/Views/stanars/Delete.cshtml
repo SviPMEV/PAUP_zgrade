@@ -3,7 +3,8 @@
 @{
     ViewBag.Title = "Obriši stanara";
 }
-
+@if (Session["email"] != null && Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
+{
 <h2>Obriši stanara</h2>
 
 <h3>Jeste li sigurni da želite obrisati ovog stanara?</h3>
@@ -78,3 +79,11 @@
         </div>
     }
 </div>
+}
+else
+{
+
+<div class="jumbotron container">
+    <h3>Stranica za upravitelja</h3>
+    <p class="lead">Poštovani, ova stranica je samo za upravitelja zgrada. Ukoliko ste vi to upravitelju, molim prijavite se!</p>
+</div>}

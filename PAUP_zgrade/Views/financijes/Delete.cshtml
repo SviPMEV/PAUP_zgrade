@@ -3,7 +3,8 @@
 @{
     ViewBag.Title = "Obriši financijsku stavku";
 }
-
+@if (Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
+{
 <h2>Obriši financijsku stavku</h2>
 
 <h3>Da li ste sigurni da želite obrisati ovu financijsku stavku?</h3>
@@ -53,7 +54,7 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+   @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
@@ -62,3 +63,6 @@
         </div>
     }
 </div>
+}
+else
+{ <br /><p> Molimo ulogirajte se</p>}
