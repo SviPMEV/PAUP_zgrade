@@ -41,6 +41,26 @@ namespace PAUP_zgrade.Views
             return PartialView(lista.ToList());
         }
 
+        public ActionResult ListaFinancijaStanar()
+        {
+            return View(db.financijes.ToList());
+        }
+
+        public ActionResult ListaFinancijaStanarPartial(string zgrada, string obavljenafinancija)
+        {
+            //simuliramo neki posao na serveru
+            Thread.Sleep(2000);
+            // EF - lista sa filtriranjem
+            var lista = from s in db.financijes select s;
+            // filtriranja
+            if (!String.IsNullOrEmpty(zgrada))
+                lista = lista.Where(st => st.zgradaFinancija.ToString().Equals(zgrada));
+            if (!String.IsNullOrEmpty(obavljenafinancija))
+                lista = lista.Where(st => st.obavljenPosao.ToString() == obavljenafinancija);
+            // vraćamo view sa listom svih studenata kao ulaznim parametrom
+            return PartialView(lista.ToList());
+        }
+
         // GET: financijes/Details/5
         public ActionResult Details(int? id)
         {

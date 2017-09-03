@@ -29,7 +29,8 @@ namespace PAUP_zgrade.Controllers
                     {
                     Session["idstanar"] = obj.idstanar;
                     Session["email"] = obj.email;
-                    return RedirectToAction("Index","Home");
+                    Session["zgrada"] = obj.zgrada;
+                        return RedirectToAction("Index","Home");
                     } else { ViewBag.Message = " Unesli ste krivu lozinku, pokušajte ponovo"; }
 
             return View(objUser);
@@ -53,6 +54,7 @@ namespace PAUP_zgrade.Controllers
         {
             Session["email"] = null;
             Session["idstanar"] = null;
+            Session["zgrada"] = null;
             return View("Odjavna_poruka");
         }
     }
