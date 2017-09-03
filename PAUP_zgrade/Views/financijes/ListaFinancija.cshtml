@@ -15,8 +15,8 @@
 }
 
 
-@*@if(Session["email"] != null)
-{*@
+@if(Session["email"] != null)
+{
 
 <h2>Lista financijskih transakcija</h2>
 
@@ -27,7 +27,7 @@
 }
 </p>
 
-@using (@Ajax.BeginForm("ListaFinancijaPartial", "financijes", ajaxOpcije
+using (@Ajax.BeginForm("ListaFinancijaPartial", "financijes", ajaxOpcije
            , new { @class = "form-inline", id = "form1" })){
     <div class="form-group">
         @Html.Label("zgrada", new { @class = "sr-only", id = "form1" })
@@ -56,7 +56,9 @@
 
 @Html.Action("ListaFinancijaPartial", "financijes")
 
-@*}*@
+}
+else
+{ <br /><p>Molimo ulogirajte se</p>}
 
 
 @*<script type="text/javascript">

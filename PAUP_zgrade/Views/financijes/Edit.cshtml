@@ -4,13 +4,16 @@
     ViewBag.Title = "Izmjena financijske stavke";
 }
 
+@if (Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
+{
+
 <h2>Izmjena financijske stavke</h2>
 
 
-@using (Html.BeginForm())
-{
+    using (Html.BeginForm())
+    {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>@Html.LabelFor(model => model.idfinancije) @Html.DisplayFor(model => model.idfinancije)</h4>
         <hr />
@@ -65,12 +68,14 @@
             </div>
         </div>
     </div>
-}
+    }
 
 <div>
     @Html.ActionLink("Natrag na listu", "ListaFinancija")
 </div>
-
+}
+else
+{ <br /><p>Molimo ulogirajte se</p>}
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

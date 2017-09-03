@@ -3,11 +3,12 @@
 @{
     ViewBag.Title = "Promjena podataka stanara";
 }
-
+@if (Session["email"] != null && Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
+{
 <h2>Promjena podataka stanara</h2>
 
 
-@using (Html.BeginForm())
+using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
@@ -92,7 +93,14 @@
 <div>
     @Html.ActionLink("Natrag na listu", "Index")
 </div>
+}
+else
+{
 
+    <div class="jumbotron container">
+        <h3>Stranica za upravitelja</h3>
+        <p class="lead">Poštovani, ova stranica je samo za upravitelja zgrada. Ukoliko ste vi to upravitelju, molim prijavite se!</p>
+    </div>}
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

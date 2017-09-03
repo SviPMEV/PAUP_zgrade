@@ -57,7 +57,6 @@ namespace PAUP_zgrade.Views
                 db.SaveChanges();
                 return RedirectToAction("Index", "");
             }
-
             return View(poruka);
         }
 

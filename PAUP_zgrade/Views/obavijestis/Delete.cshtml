@@ -3,7 +3,8 @@
 @{
     ViewBag.Title = "Obriši obavijest";
 }
-
+@if (Session["email"].ToString() == "upravitelj_zgradara@gmail.com")
+{
 <h2>Obriši obavijest</h2>
 
 <h3>Da li ste sigurni da želite obrisati ovu obavijest?</h3>
@@ -46,3 +47,6 @@
         </div>
     }
 </div>
+}
+else
+{ <br /><p>Molimo ulogirajte se</p>}
