@@ -69,4 +69,12 @@
                     Ukupno stanje zgrade na dan @DateTime.Now.Day. @DateTime.Now.Month. @DateTime.Now.Year. je:
                     <b><span style="color:red;"> @zbrojTransakcija.ToString() kn</span></b>
                 </p>
+                <p>
+                    <span class="glyphicon glyphicon-print"></span> @Html.ActionLink("Ispiši listu", "Ispisi", new
+                    {
+                        naziv = Request.QueryString["naziv"],
+                        spol = Request.QueryString["spol"],
+                        ustanova = Request.QueryString["ustanova"]
+                    }, new { target = "blank" })
+                </p>
             </div> 
