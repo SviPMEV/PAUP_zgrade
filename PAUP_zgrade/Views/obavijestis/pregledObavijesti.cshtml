@@ -12,6 +12,10 @@
 
    <h2>Pregled obavijesti</h2>
 
+    <p>
+        <span class="glyphicon glyphicon-print"></span> @Html.ActionLink("Ispiši listu", "Ispisi", new { target = "blank" })
+    </p>
+
     foreach (var item in Model)
     {
         <hr />
@@ -22,6 +26,7 @@
             <h7>Datum obavijesti:</h7>
 
             <p>@Html.DisplayFor(modelItem => item.datumObavijest)</p>
+            <br />
             <br />
 
             <h4><b>Sadržaj:</b></h4>
