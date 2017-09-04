@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using PAUP_zgrade.Models;
 using System.Threading;
+using PAUP_zgrade.Reports;
+using System.IO;
 
 namespace PAUP_zgrade.Views
 {
@@ -154,6 +156,21 @@ namespace PAUP_zgrade.Views
             db.financijes.Remove(financije);
             db.SaveChanges();
             return RedirectToAction("ListaFinancija");
+        }
+
+        // pdf
+        public FileStreamResult Ispisi(string zgrada, string obavljenafinancija)
+        {
+            // EF - lista sa filtriranjem
+            var lista = from s in db.financijes select s;
+            // filtriranja
+            if (!String.IsNullOrEmpty(zgrada))
+                lista = lista.Where(st => st.zgradaFinancija.ToString().Equals(zgrada));
+            if (!String.IsNullOrEmpty(obavljenafinancija))
+                lista = lista.Where(st => st.obavljenPosao.ToString() == obavljenafinancija);
+
+            FinancijeReport r = new FinancijeReport(lista.ToList());
+            return new FileStreamResult(new MemoryStream(r.Podaci), "application/pdf");
         }
 
         protected override void Dispose(bool disposing)
