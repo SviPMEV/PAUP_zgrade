@@ -17,6 +17,7 @@
                     <tbody id="lista">
                         @{
                             decimal zbrojTransakcija = 0;
+                            int brojZgrade = (int)Session["zgrada"];
                             foreach (var item in Model.Where(n => n.zgradaFinancija == ((int)Session["zgrada"])))
                             {
                                 <tr>
@@ -57,4 +58,11 @@
                     Ukupno stanje zgrade na dan @DateTime.Now.Day. @DateTime.Now.Month. @DateTime.Now.Year. je:
                     <b><span style="color:red;"> @zbrojTransakcija.ToString() kn</span></b>
                 </p>
+        <p>
+            <span class="glyphicon glyphicon-print"></span> @Html.ActionLink("Ispiši listu", "Ispisi", new
+                                                               {
+                                                                   zgrada = brojZgrade,
+                                                                   obavljenafinancija = Request.QueryString["obavljenafinancija"],
+                                                               }, new { target = "blank" })
+        </p>
             </div> 
