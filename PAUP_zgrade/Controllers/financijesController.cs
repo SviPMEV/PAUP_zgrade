@@ -39,7 +39,7 @@ namespace PAUP_zgrade.Views
                 lista = lista.Where(st => st.zgradaFinancija.ToString().Equals(zgrada));
             if (!String.IsNullOrEmpty(obavljenafinancija))
                 lista = lista.Where(st => st.obavljenPosao.ToString() == obavljenafinancija);
-            // vraćamo view sa listom svih studenata kao ulaznim parametrom
+            // vraćamo view sa listom svih stanara kao ulaznim parametrom
             return PartialView(lista.ToList());
         }
 
@@ -59,7 +59,7 @@ namespace PAUP_zgrade.Views
                 lista = lista.Where(st => st.zgradaFinancija.ToString().Equals(zgrada));
             if (!String.IsNullOrEmpty(obavljenafinancija))
                 lista = lista.Where(st => st.obavljenPosao.ToString() == obavljenafinancija);
-            // vraćamo view sa listom svih studenata kao ulaznim parametrom
+            // vraćamo view sa listom svih stanara kao ulaznim parametrom
             return PartialView(lista.ToList());
         }
 
