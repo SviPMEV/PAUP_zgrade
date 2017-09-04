@@ -239,7 +239,6 @@
     <Compile Include="Models\stanar.cs">
       <DependentUpon>modeli_zgrade.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\StanariDbContext.cs" />
     <Compile Include="Models\zgrada.cs">
       <DependentUpon>modeli_zgrade.tt</DependentUpon>
     </Compile>
