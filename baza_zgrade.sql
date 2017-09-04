@@ -32,7 +32,7 @@ CREATE TABLE `financije` (
   `opisFinancije` varchar(255) COLLATE cp1250_croatian_ci NOT NULL,
   `obavljenPosao` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`idfinancije`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,7 +85,7 @@ CREATE TABLE `poruka` (
   `tijeloPoruke` longtext COLLATE cp1250_croatian_ci NOT NULL,
   `datumPoruke` date NOT NULL,
   PRIMARY KEY (`idporuka`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +94,7 @@ CREATE TABLE `poruka` (
 
 LOCK TABLES `poruka` WRITE;
 /*!40000 ALTER TABLE `poruka` DISABLE KEYS */;
-INSERT INTO `poruka` VALUES (1,'Marko','Treba zarulju promenit','V mojem holu zarulja krepala i ne vidim nist dok hodam','2016-12-23'),(2,'Bobo','Probno','Samo testiram kak funkcionira','2015-01-30'),(3,'Bobo','Jos jedan test','Samo sprobavam','2016-03-30');
+INSERT INTO `poruka` VALUES (1,'Marko','Treba zarulju promenit','V mojem holu zarulja krepala i ne vidim nist dok hodam','2016-12-23'),(2,'Bobo','Probno','Samo testiram kak funkcionira','2015-01-30'),(3,'Bobo','Jos jedan test','Samo sprobavam','2016-03-30'),(5,'ankich@hotmail.com','test','asfnaspf','2017-09-03');
 /*!40000 ALTER TABLE `poruka` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-30 21:27:06
+-- Dump completed on 2017-09-04 11:12:19
