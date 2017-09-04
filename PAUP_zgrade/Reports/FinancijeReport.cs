@@ -4,6 +4,7 @@ using PAUP_zgrade.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Web.Hosting;
+using static iTextSharp.text.Font;
 
 namespace PAUP_zgrade.Reports
 {
@@ -50,8 +51,12 @@ namespace PAUP_zgrade.Reports
             t.AddCell(VratiCeliju("Opis", tekst, BaseColor.LIGHT_GRAY, true));
             t.AddCell(VratiCeliju("Posao obavljen", tekst, BaseColor.LIGHT_GRAY, true));
 
+            decimal financijeTotal = 0;
+
             foreach (financije f in financije)
             {
+                if (f.obavljenPosao == 1)
+                    { financijeTotal = financijeTotal + f.vrijednostFinancije; }
                 t.AddCell(VratiCeliju(f.datumFinancije.ToString("yyyy-MM-dd"), tekst, BaseColor.WHITE, false));
                 t.AddCell(VratiCeliju(f.vrijednostFinancije.ToString(), tekst, BaseColor.WHITE, false));
                 t.AddCell(VratiCeliju(f.zgradaFinancija.ToString(), tekst, BaseColor.WHITE, false));
@@ -60,6 +65,14 @@ namespace PAUP_zgrade.Reports
             }
 
             pdfDokument.Add(t);
+
+            Font red = new Font(FontFamily.HELVETICA, 12, Font.BOLD, BaseColor.RED);
+            Chunk crvenitekst = new Chunk("Ukupno evidentirane financije: " + financijeTotal + "kn", red);
+            p = new Paragraph(crvenitekst);
+            p.Alignment = Element.ALIGN_LEFT;
+            p.SpacingBefore = 30;
+            pdfDokument.Add(p);
+
 
             p = new Paragraph("Čakovec, " + System.DateTime.Now.ToString("dd.MM.yyyy"), header);
             p.Alignment = Element.ALIGN_RIGHT;
