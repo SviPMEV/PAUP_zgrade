@@ -12,9 +12,14 @@
 
    <h2>Pregled obavijesti</h2>
 
-    <p>
+    @*<p>
         <span class="glyphicon glyphicon-print"></span> @Html.ActionLink("Ispiši listu", "Ispisi", new { target = "blank" })
-    </p>
+    </p>*@
+
+    <div>
+        @*@Html.ActionLink("Back to List", "Index", new { area = "" }, null)*@
+        @Html.RouteLink("Natrag na početnu stranicu", "Default", new { action = "", controller = "" })
+    </div>
 
     foreach (var item in Model)
     {
@@ -31,8 +36,8 @@
 
             <h4><b>Sadržaj:</b></h4>
 
-            <p> @Html.DisplayFor(modelItem => item.tekstObavijest)</p>
-
+            <p>  @Html.Raw(HttpUtility.HtmlEncode(item.tekstObavijest).Replace("\n", "<br/>"))</p>
+         
         </div>
 
     }

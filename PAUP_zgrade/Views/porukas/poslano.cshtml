@@ -1,0 +1,20 @@
+﻿@model PAUP_zgrade.Models.poruka
+
+@{
+    ViewBag.Title = "Pošalji novu poruku";
+}
+@if (Session["email"] != null)
+{
+<h2>Vaša poruka je poslana upravitelju!</h2>
+
+<div>
+    @*@Html.ActionLink("Back to List", "Index", new { area = "" }, null)*@
+    @Html.RouteLink("Natrag na početnu stranicu", "Default", new { action = "", controller = "" })
+</div>
+}
+
+else
+{ <br /><p>Molimo ulogirajte se</p>}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

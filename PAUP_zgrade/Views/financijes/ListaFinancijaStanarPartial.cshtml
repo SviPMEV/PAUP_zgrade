@@ -8,7 +8,7 @@
                 <tr>
                     <th>            Datum Financije       </th>
                     <th>            Vrijednost transakcije        </th>
-                    <th>            Zgrada       </th>
+                    
                     <th>            Opis        </th>
                     <th>            Posao obavljen       </th>
                     <th></th>
@@ -32,9 +32,7 @@
                                             }}
                                    
                                         </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.zgradaFinancija)
-                                        </td>
+                                
                                         <td>
                                             @Html.DisplayFor(modelItem => item.opisFinancije)
                                         </td>
@@ -65,4 +63,8 @@
                                                                    obavljenafinancija = Request.QueryString["obavljenafinancija"],
                                                                }, new { target = "blank" })
         </p>
+        <div>
+            @*@Html.ActionLink("Back to List", "Index", new { area = "" }, null)*@
+            @Html.RouteLink("Natrag na početnu stranicu", "Default", new { action = "", controller = "" })
+        </div>
             </div> 

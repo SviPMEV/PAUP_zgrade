@@ -36,7 +36,7 @@ namespace PAUP_zgrade.Models
         [Required(ErrorMessage = "Datum je obavezan podatak")]
         [DataType(DataType.Date)]
         // ako ne napisemo fiksno ovaj format Google Chrome ne�e dobro prikazati datumsko po
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy.}", ApplyFormatInEditMode = true)]
         // ako želimo zadati raspon datum
         // [Range(typeof(DateTime), "01.01.1900", "31.12.2005", ErrorMessage="{0} treba biti izme�u {1:d} i {2:d}")
         public System.DateTime datumObavijest { get; set; }

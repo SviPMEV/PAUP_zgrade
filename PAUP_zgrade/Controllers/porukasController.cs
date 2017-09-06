@@ -35,6 +35,10 @@ namespace PAUP_zgrade.Views
             }
             return View(poruka);
         }
+        public ActionResult poslano()
+        {
+            return View();
+        }
 
         // GET: porukas/Create
         public ActionResult Create()
@@ -55,7 +59,7 @@ namespace PAUP_zgrade.Views
                 poruka.idporuka = noviId;
                 db.porukas.Add(poruka);
                 db.SaveChanges();
-                return RedirectToAction("Index", "");
+                return RedirectToAction("poslano", "porukas");
             }
             return View(poruka);
         }
