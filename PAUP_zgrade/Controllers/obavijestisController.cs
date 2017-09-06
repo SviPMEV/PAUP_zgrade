@@ -7,6 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PAUP_zgrade.Models;
+using PAUP_zgrade.Reports;
+using System.IO;
+using System.Text;
 
 namespace PAUP_zgrade.Views
 {
@@ -125,6 +128,15 @@ namespace PAUP_zgrade.Views
             return RedirectToAction("Index");
         }
 
+        // pdf
+        public FileStreamResult Ispisi()
+        {
+            var lista = from s in db.obavijestis select s;
+            
+            ObavijestiReport r = new ObavijestiReport(lista.ToList());
+            return new FileStreamResult(new MemoryStream(r.Podaci), "application/pdf");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -134,4 +146,6 @@ namespace PAUP_zgrade.Views
             base.Dispose(disposing);
         }
     }
+
+
 }

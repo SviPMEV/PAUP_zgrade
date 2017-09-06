@@ -26,7 +26,7 @@ namespace PAUP_zgrade.Models
         [Required(ErrorMessage = "Datum je obavezan podatak")]
         [DataType(DataType.Date)]
         // ako ne napisemo fiksno ovaj format Google Chrome nece dobro prikazati datumsko po
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy.}", ApplyFormatInEditMode = true)]
         public System.DateTime datumFinancije { get; set; }
 
         [Display(Name = "Vrijednost")]

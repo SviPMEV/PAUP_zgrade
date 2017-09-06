@@ -380,6 +380,7 @@
     <Content Include="Views\stanars\stanariPartial.cshtml" />
     <Content Include="Views\financijes\ListaFinancijaStanarPartial.cshtml" />
     <Content Include="Views\financijes\ListaFinancijaStanar.cshtml" />
+    <Content Include="Views\porukas\poslano.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
