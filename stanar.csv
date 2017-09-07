@@ -1,0 +1,7 @@
+"idstanar";"Ime";"Prezime";"OIB";"email";"telefon";"mobitel";"zgrada";"password_stanara";"IsActive"
+1;"Marko";"Markić";"5151561651";"mark.markic@gmail.com";4004655;92123457;1;"test1";"0"
+2;"Ana";"Anić";"1234567891";"ankich@hotmail.com";420000546;951234555;2;"test2";"0"
+3;"Boskan";"Blajbek";"1234567892";"blajbo@gmx.net";100065646;925446587;3;"test3";"0"
+4;"Ivica";"Blulu";"1234567895";"blubuulu@gmail.com";40655466;92444512;1;"test4";"0"
+5;"blablab";"blalsbl";"1234567888";"sgmas@gmai.com";92144156;92154666;1;"test5";"0"
+10;"Upravite";"Upraviteljko";"1233656564";"upravitelj_zgradara@gmail.com";45534358;87378387;1;"upravitelj";"0"

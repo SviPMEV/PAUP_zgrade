@@ -41,7 +41,7 @@ CREATE TABLE `financije` (
 
 LOCK TABLES `financije` WRITE;
 /*!40000 ALTER TABLE `financije` DISABLE KEYS */;
-INSERT INTO `financije` VALUES (1,'2015-12-22',155.44,1,'Placanje pricuve Mirko Markec 12/2015',1),(2,'2016-11-10',-200.00,1,'Kupljena žarulja',1),(3,'2016-11-11',155.44,1,'Placanje pricuve Mirko Markec 11/2016',1),(4,'2016-12-23',-12550.00,2,'Reparatura fasade',1),(5,'2013-12-26',155.44,2,'Pricuva Ankica 12/2013',0),(6,'2017-01-05',10000.00,2,'Donacija EU',1),(7,'2017-01-31',345.00,2,'test',1),(8,'2016-01-31',435.44,2,'test2',0),(9,'2016-11-01',343.33,1,'samo test radio buttona',1);
+INSERT INTO `financije` VALUES (1,'2017-09-21',155.44,1,'Placanje pricuve Mirko Markec 12/2015',1),(2,'2016-11-10',-200.00,1,'Kupljena žarulja',1),(3,'2016-11-11',155.44,1,'Placanje pricuve Mirko Markec 11/2016',1),(4,'2016-12-23',-12550.00,2,'Reparatura fasade',1),(5,'2013-12-26',155.44,2,'Pricuva Ankica 12/2013',0),(6,'2017-01-05',10000.00,2,'Donacija EU',1),(7,'2017-01-31',345.00,2,'test',1),(8,'2016-01-31',435.44,2,'test2',0),(9,'2016-11-01',343.33,1,'samo test radio buttona',1),(10,'2017-09-14',64.50,1,'fdhdf',1);
 /*!40000 ALTER TABLE `financije` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,7 +67,7 @@ CREATE TABLE `obavijesti` (
 
 LOCK TABLES `obavijesti` WRITE;
 /*!40000 ALTER TABLE `obavijesti` DISABLE KEYS */;
-INSERT INTO `obavijesti` VALUES (1,'Napravljena nova zgrada u Varaždinu','Obavještavamo građane republike Hrvatske da je napravljena nova zgrada z Varaždinu, te slobno cijeli puk kupi stan po volji, cijene će varirati od 20€ po kvadratu za politicare i clanove crveno zelenih stranaka pa sve do 2000€ po kvadratu za opći narod sa prosjećnim primanjima ukoliko par mjeseci uplate neko mito prvotno navedenima','2016-12-02'),(2,'Zamijenjena žarulja u Čakovcu','Obještavamo stanare zgrade u Čakovcu da im je zamijenjena žarulja na drugom katu, s 60W modelom, ovo će uvelike doprinijeti uštedi toplinske energije pošto smo pri uštedi kupili žarulju sa žarnom niti umjesto LED varijante tako da grije pošteno i stanari na određenom katu mogu smanjiti grijanje za 0.2 stupnjeva na svojim šparhetima na drva.','2016-12-23'),(3,'Vjetar otpuhnuo predstavnika zgrade','Prilikom jakog vjetra u srijedu predstvanik zgrade se naginjao kroz prozor zajedničkog hodnika i otpuhnuo ga je do susjedne zgrade koja je u vlasništvu konkurentske tvrtke koji pa ga žele otkupiti za vođenje svoje zgrade, trenutačno smo u pregovorima s konkuretntskom tvrtkom i čekamo bolje uvjete. do daljnjega predstavnik zgrade je nedostupan','2017-01-11');
+INSERT INTO `obavijesti` VALUES (1,'Napravljena nova zgrada u Varaždinu','Obavještavamo građane republike Hrvatske da je napravljena nova zgrada z Varaždinu, \r\nte slobno cijeli puk kupi stan po volji, cijene će varirati od 20€ po kvadratu za politicare i clanove crveno zelenih stranaka\r\n\r\n pa sve do 2000€ po kvadratu za opći narod sa prosjećnim primanjima ukoliko par mjeseci uplate neko mito prvotno navedenima','2017-09-19'),(2,'Zamijenjena žarulja u Čakovcu','Obještavamo stanare zgrade u Čakovcu da im je zamijenjena žarulja na drugom katu,\r\ns 60W modelom, ovo će uvelike doprinijeti uštedi toplinske energije pošto smo pri uštedi kupili žarulju sa žarnom niti umjesto LED varijante tako da grije pošteno \r\n\r\ni stanari na određenom katu mogu smanjiti grijanje za 0.2 stupnjeva na svojim šparhetima na drva.','2017-09-21'),(3,'Vjetar otpuhnuo predstavnika zgrade','Prilikom jakog vjetra u srijedu predstvanik zgrade se naginjao kroz prozor zajedničkog hodnika i otpuhnuo ga je do susjedne zgrade koja je u vlasništvu konkurentske tvrtke koji pa ga žele otkupiti za vođenje svoje zgrade, trenutačno smo u pregovorima s konkuretntskom tvrtkom i čekamo bolje uvjete. do daljnjega predstavnik zgrade je nedostupan','2017-01-11');
 /*!40000 ALTER TABLE `obavijesti` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,7 +85,7 @@ CREATE TABLE `poruka` (
   `tijeloPoruke` longtext COLLATE cp1250_croatian_ci NOT NULL,
   `datumPoruke` date NOT NULL,
   PRIMARY KEY (`idporuka`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +94,7 @@ CREATE TABLE `poruka` (
 
 LOCK TABLES `poruka` WRITE;
 /*!40000 ALTER TABLE `poruka` DISABLE KEYS */;
-INSERT INTO `poruka` VALUES (1,'Marko','Treba zarulju promenit','V mojem holu zarulja krepala i ne vidim nist dok hodam','2016-12-23'),(2,'Bobo','Probno','Samo testiram kak funkcionira','2015-01-30'),(3,'Bobo','Jos jedan test','Samo sprobavam','2016-03-30'),(5,'ankich@hotmail.com','test','asfnaspf','2017-09-03');
+INSERT INTO `poruka` VALUES (1,'Marko','Treba zarulju promenit','V mojem holu zarulja krepala i ne vidim nist dok hodam','2016-12-23'),(2,'Bobo','Probno','Samo testiram kak funkcionira','2015-01-30'),(3,'Bobo','Jos jedan test','Samo sprobavam','2016-03-30'),(5,'ankich@hotmail.com','test','asfnaspf','2017-09-03'),(6,'upravitelj_zgradara@gmail.com','fghfgh','fghfg','2017-09-06'),(7,'upravitelj_zgradara@gmail.com','fgh','fgh','2017-09-06');
 /*!40000 ALTER TABLE `poruka` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-09-04 11:12:19
+-- Dump completed on 2017-09-07 18:27:11
