@@ -244,7 +244,6 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\FinancijeReport.cs" />
-    <Compile Include="Reports\ObavijestiReport.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Controllers\financijesController.cs" />
     <Compile Include="Controllers\obavijestisController.cs" />

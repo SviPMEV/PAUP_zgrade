@@ -128,14 +128,6 @@ namespace PAUP_zgrade.Views
             return RedirectToAction("Index");
         }
 
-        // pdf
-        public FileStreamResult Ispisi()
-        {
-            var lista = from s in db.obavijestis select s;
-            
-            ObavijestiReport r = new ObavijestiReport(lista.ToList());
-            return new FileStreamResult(new MemoryStream(r.Podaci), "application/pdf");
-        }
 
         protected override void Dispose(bool disposing)
         {
